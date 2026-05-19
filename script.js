@@ -43,7 +43,6 @@
       else link.classList.remove('is-active');
     });
 
-    // Dashboard label: sync with the section keyword inside the hero
     const allTypeLines = $$('.type-line');
     if (allTypeLines.length) {
       const map = {
@@ -54,20 +53,8 @@
         contact: 'That Perform'
       };
 
-      // عند دخول الصفحة من بداية الـ load أو السكشن home تحديدًا: اعرض أول سطر فقط
-      // (ده بيضمن إن Home يكون له شكل مستقل ومش محتاج تحميل من Intersection غير جاهز)
       const desired = map[id] || 'Building';
 
-      // ثابت: تعطيل تفاعل إظهار/إخفاء سطور العنوان اللي عليها data-type
-      // (ده بيوقف أي مشاكل بتظهر بعد Refresh أو الرجوع للصفحة)
-      // allTypeLines.forEach((el) => {
-      //   const t = el.getAttribute('data-type');
-      //   const shouldShow = t === desired;
-      //   el.style.opacity = shouldShow ? '1' : '0';
-      //   el.style.clipPath = shouldShow ? 'inset(0 0 0 0)' : 'inset(0 100% 0 0)';
-      // });
-
-      // تأكد إن Modern ثابتة دائمًا
       const modernLabel = document.querySelector('.modern-label');
       if (modernLabel) {
         modernLabel.style.opacity = '1';
@@ -76,28 +63,54 @@
     }
   }
 
-  // تم إيقاف sync الديناميكي لتفادي اختفاء النص بعد refresh/scroll.
-  // setActiveSection('home');
+  // Contact form (EmailJS)
+  const CONTACT = {
+    formId: 'contact-form',
+    statusId: 'contact-status',
+    serviceId: 'service_3zr6jkm',
+    templateId: 'template_bjsohns',
+    userId: 'nnOro-mJNyF3wnTjt',
+    toEmail: 'salmantawfeeq10@gmail.com'
+  };
 
-  if ('IntersectionObserver' in window) {
-    const sections = ['home', 'projects', 'about', 'experience', 'contact']
-      .map((id) => document.getElementById(id))
-      .filter(Boolean);
+  function setStatus(statusEl, type, msg) {
+    if (!statusEl) return;
+    statusEl.classList.remove('is-success', 'is-error', 'is-visible');
+    if (type) statusEl.classList.add(type === 'success' ? 'is-success' : 'is-error');
+    statusEl.textContent = msg || '';
+    statusEl.classList.add('is-visible');
+  }
 
-    const spy = new IntersectionObserver(
-      (entries) => {
-        // pick the most visible one
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (!visible) return;
-        // تم تعطيل setActiveSection لتفادي أي تغيّر في كلمات hero بعد الرجوع/refresh.
-        // setActiveSection(visible.target.id);
-      },
-      { threshold: [0.15, 0.35, 0.6] }
+  function getFieldValue(form, name) {
+    const el = form.querySelector(`[name="${CSS.escape(name)}"]`);
+    return el ? el.value.trim() : '';
+  }
+
+  function basicValidate(name, email, message) {
+    if (!name || name.length < 2) return 'Please enter your name.';
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return 'Please enter a valid email.';
+    if (!message || message.length < 10) return 'Message must be at least 10 characters.';
+    return null;
+  }
+
+  async function sendViaEmailJS(payload) {
+    if (!window.emailjs || typeof window.emailjs.send !== 'function') {
+      throw new Error('EmailJS SDK not loaded');
+    }
+
+    if (typeof window.emailjs.init === 'function') {
+      window.emailjs.init(CONTACT.userId);
+    }
+
+    return window.emailjs.send(CONTACT.serviceId, CONTACT.templateId, payload);
+  }
+
+  function buildMailtoLink({ name, email, message }) {
+    const subject = encodeURIComponent(`Message from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
     );
-
-    sections.forEach((s) => spy.observe(s));
+    return `mailto:${CONTACT.toEmail}?subject=${subject}&body=${body}`;
   }
 
   // Scroll progress + navbar intensity
@@ -114,16 +127,105 @@
   updateScrollUI();
   window.addEventListener('scroll', () => updateScrollUI(), { passive: true });
 
+  // Contact form submit handling
+  const contactForm = $(`#${CONTACT.formId}`);
+  const contactStatus = $(`#${CONTACT.statusId}`);
+
+  if (contactForm) {
+    const sendBtn = contactForm.querySelector('.contact-send');
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const name = getFieldValue(contactForm, 'name');
+      const email = getFieldValue(contactForm, 'email');
+      const message = getFieldValue(contactForm, 'message');
+
+      const err = basicValidate(name, email, message);
+      if (err) {
+        setStatus(contactStatus, 'error', err);
+        return;
+      }
+
+      const payload = { name, email, message };
+
+      if (sendBtn) {
+        sendBtn.classList.add('is-loading');
+        sendBtn.disabled = true;
+      }
+      setStatus(contactStatus, null, '');
+
+      try {
+        await sendViaEmailJS(payload);
+        setStatus(contactStatus, 'success', 'Message sent successfully!');
+        contactForm.reset();
+      } catch (error) {
+        // Important: do NOT navigate immediately.
+        // Instead, show a mailto link so it opens only if the user clicks.
+        const mailto = buildMailtoLink({ name, email, message });
+        setStatus(contactStatus, 'error', 'Could not send via EmailJS. Click to open an email draft.');
+
+        let linkEl = contactForm.querySelector('.contact-mailto-link');
+        if (!linkEl) {
+          linkEl = document.createElement('a');
+          linkEl.className = 'contact-mailto-link';
+          linkEl.style.display = 'inline-flex';
+          linkEl.style.marginTop = '10px';
+          linkEl.style.fontWeight = '900';
+          linkEl.style.color = 'var(--accent)';
+          linkEl.target = '_blank';
+          linkEl.rel = 'noopener noreferrer';
+          linkEl.textContent = 'Open email draft (mailto)';
+          contactForm.appendChild(linkEl);
+        }
+        linkEl.href = mailto;
+      } finally {
+        if (sendBtn) {
+          sendBtn.classList.remove('is-loading');
+          sendBtn.disabled = false;
+        }
+      }
+    });
+  }
+
   // IntersectionObserver animations
   const animateTargets = $$('.projects, .about, .experience, .contact, .certifications, .cert-card, .project-card, .about-card, .skills-card');
 
-  const supportsIO = 'IntersectionObserver' in window;
+  if ('IntersectionObserver' in window) {
+    const spy = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+      },
+      { threshold: [0.15, 0.35, 0.6] }
+    );
 
-  // About background progressive reveal (separate, so we can control the class)
-  const aboutSection = document.getElementById('about');
+    ['home', 'projects', 'about', 'experience', 'contact', 'proficiency']
+      .map((id) => document.getElementById(id))
+      .filter(Boolean)
+      .forEach((s) => spy.observe(s));
+
+    // Progress bars animation (Proficiency)
+    const proficiency = document.getElementById('proficiency');
+    if (proficiency) {
+      const pbIO = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              proficiency.classList.add('is-proficiency-visible');
+              // Activate fills once
+              $$('.progress-row', proficiency).forEach((row) => row.classList.add('is-activated'));
+            }
+          }
+        },
+        { threshold: 0.25 }
+      );
+      pbIO.observe(proficiency);
+    }
 
 
-  if (supportsIO) {
     const io = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -132,12 +234,13 @@
       },
       { threshold: 0.12 }
     );
+
     animateTargets.forEach((t) => {
       t.classList.add('will-animate');
       io.observe(t);
     });
 
-    // Progressive reveal for About background only
+    const aboutSection = document.getElementById('about');
     if (aboutSection) {
       const aboutIO = new IntersectionObserver(
         (entries) => {
@@ -153,7 +256,6 @@
     }
   }
 
-
   // Hero interactivity (mouse glow + subtle parallax)
   const hero = document.querySelector('.hero');
   const orb = document.querySelector('.cursor-orb');
@@ -163,69 +265,30 @@
   if (hero && orb) {
     const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!reduce) {
-      window.addEventListener('mousemove', (e) => {
-        const r = hero.getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width; // 0..1
-        const y = (e.clientY - r.top) / r.height; // 0..1
+      window.addEventListener(
+        'mousemove',
+        (e) => {
+          const r = hero.getBoundingClientRect();
+          const x = (e.clientX - r.left) / r.width; // 0..1
+          const y = (e.clientY - r.top) / r.height; // 0..1
 
-        // Move orb slightly within hero-visual area
-        const ox = (x - 0.5) * 80;
-        const oy = (y - 0.5) * 60;
-        orb.style.transform = `translate3d(${ox}px, ${oy}px, 0)`;
+          const ox = (x - 0.5) * 80;
+          const oy = (y - 0.5) * 60;
+          orb.style.transform = `translate3d(${ox}px, ${oy}px, 0)`;
 
-        if (circle) {
-          circle.style.transform = `translate3d(${(x - 0.5) * 10}px, ${(y - 0.5) * 10}px, 0)`;
-        }
+          if (circle) {
+            circle.style.transform = `translate3d(${(x - 0.5) * 10}px, ${(y - 0.5) * 10}px, 0)`;
+          }
 
-        if (scan) {
-          scan.style.opacity = String(0.08 + x * 0.10);
-          scan.style.transform = `translateY(${(-20 + y * 40).toFixed(2)}%)`;
-        }
-      }, { passive: true });
+          if (scan) {
+            scan.style.opacity = String(0.08 + x * 0.10);
+            scan.style.transform = `translateY(${(-20 + y * 40).toFixed(2)}%)`;
+          }
+        },
+        { passive: true }
+      );
     }
   }
 
-  // Contact form validation + micro-interaction
-  const form = $('#contactForm');
-  const hint = $('#formHint');
-
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const name = form.querySelector('input[name="name"]')?.value.trim();
-      const email = form.querySelector('input[name="email"]')?.value.trim();
-      const message = form.querySelector('textarea[name="message"]')?.value.trim();
-
-      if (!name || !email || !message) {
-        if (hint) hint.textContent = 'Please fill in all fields.';
-        return;
-      }
-
-      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-      if (!emailOk) {
-        if (hint) hint.textContent = 'Please enter a valid email.';
-        return;
-      }
-
-      if (hint) hint.textContent = 'Sending...';
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        const oldText = submitBtn.textContent;
-        submitBtn.textContent = 'Sending...';
-
-        setTimeout(() => {
-          if (hint) hint.textContent = 'Message sent (demo).';
-          form.reset();
-          submitBtn.disabled = false;
-          submitBtn.textContent = oldText;
-        }, 700);
-      } else {
-        if (hint) hint.textContent = 'Message sent (demo).';
-        form.reset();
-      }
-    });
-  }
 })();
 

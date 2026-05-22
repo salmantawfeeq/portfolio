@@ -1,388 +1,470 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Salman Tawfik - Software Engineer</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Salman Tawfik - Software Engineer</title>
 
-  <!-- Favicon / Icons -->
-  <link rel="icon" type="image/png" href="logo1.jpg.png" sizes="32x32"/>
-  <link rel="apple-touch-icon" href="logo1.jpg.png" sizes="180x180"/>
+    <!-- Favicon / Icons -->
+    <link rel="icon" type="image/png" href="logo1.jpg.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="logo1.jpg.png" sizes="180x180" />
 
-  <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="style.css" />
 
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+  <body>
+    <!--      Navbar        -->
+    <nav class="navbar">
+      <div class="logo">Salman Tawfik</div>
 
+      <ul class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
 
-  <!--      Navbar        -->
-  <nav class="navbar">
-    <div class="logo">Salman Tawfik</div>
+      <button class="nav-btn" type="button" data-scroll="#contact">
+        Contact Me
+      </button>
+    </nav>
 
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#certifications">Certifications</a></li>
-      <li><a href="#contact">Contact</a></li>
-
-    </ul>
-
-    <button class="nav-btn" type="button" data-scroll="#contact">Contact Me</button>
-
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-
-    <!-- Scroll progress -->
-    <div class="scroll-progress" aria-hidden="true">
-      <div class="scroll-progress-bar"></div>
-    </div>
-
-    <!-- Interactive background layers -->
-    <div class="bg-grid" aria-hidden="true"></div>
-    <div class="bg-scan" aria-hidden="true"></div>
-
-    <!-- Glow -->
-    <div class="glow glow1"></div>
-    <div class="glow glow2"></div>
-
-    <div class="hero-text">
-      <span class="badge">Software Engineer</span>
-
-      <h1>
-        <span class="type-line" data-type="Building">Building</span> <span class="accent modern-label">Modern</span> <br>
-
-        <span class="type-line" data-type="Web Experiences">Web Experiences</span> <br>
-        <span class="type-line" data-type="That Perform">That Perform</span>
-      </h1>
-
-      <p>
-I design and develop responsive, scalable, and secure web solutions from database to user interface, turning complex problems into seamless digital experiences.      </p>
-
-      <div class="buttons">
-        <a class="primary-btn" href="#projects">View Projects</a>
-        <a class="secondary-btn" href="#about">Skills</a>
-      </div>
-    </div>
-
-    <!-- Right Side Circle -->
-    <div class="hero-visual" aria-hidden="true">
-      <canvas id="bb-3d-canvas" aria-hidden="true"></canvas>
-
-      <div class="circle">
-        <div class="circle-inner"></div>
-        <div class="circle-ring"></div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <!-- Scroll progress -->
+      <div class="scroll-progress" aria-hidden="true">
+        <div class="scroll-progress-bar"></div>
       </div>
 
-      <div class="profile-wrap" aria-hidden="true">
-        <img class="profile-img" src="profile.jpg.jpeg" alt="Salman Tawfik" loading="eager" />
-        <div class="profile-glow"></div>
-      </div>
+      <!-- Interactive background layers -->
+      <div class="bg-grid" aria-hidden="true"></div>
+      <div class="bg-scan" aria-hidden="true"></div>
 
-      <div class="cursor-orb"></div>
-    </div>
+      <!-- Glow -->
+      <div class="glow glow1"></div>
+      <div class="glow glow2"></div>
 
+      <div class="hero-text">
+        <span class="badge">Software Engineer</span>
 
-    
-  </section>
+        <h1>
+          <span class="type-line" data-type="Building">Building</span>
+          <span class="accent modern-label">Modern</span>
+          <br />
 
-  <section id="projects" class="projects">
-    <h2>My Projects</h2>
+          <span class="type-line" data-type="Web Experiences"
+            >Web Experiences</span
+          >
+          <br />
+          <span class="type-line" data-type="That Perform">That Perform</span>
+        </h1>
 
-    <!-- Project 1: To Do List -->
-    <div class="project-card">
-      <img class="project-img" src="assets/profile.jpg.jpeg" alt="To Do List preview" loading="lazy" />
-      <h3>To Do List</h3>
-      <p>
-A feature-rich To-Do List application that allows users to add, manage, and delete tasks. It utilizes LocalStorage for persistent data storage, ensuring tasks remain saved even after refreshing the page      </p>
-      <div class="project-tags">
-        <span class="meta-item">JavaScript</span>
-        <span class="meta-item">LocalStorage</span>
-      </div>
- 
-
-    </div>
-
-    <!-- Project 2: Simple Store (no links, no images provided) -->
-    <div class="project-card">
-      <img class="project-img" src="assets/profile.jpg.jpeg" alt="Simple Store preview" loading="lazy" />
-      <h3>Simple Store</h3>
-      <p>
-A simple store to display products in an organized manner with a responsive interface and clean components for browsing and selection.      </p>
-      <div class="project-tags">
-        <span class="meta-item">HTML</span>
-        <span class="meta-item">CSS</span>
-        <span class="meta-item">JavaScript</span>
-      </div>
-
-    </div>
-
-    <!-- Project 3: Portfolio / Landing (no links, no images provided) -->
-
-    <div class="project-card">
-      <img class="project-img" src="assets/protofolio.png" alt="Portfolio Landing preview" loading="lazy" />
-      <h3>Portfolio Landing</h3>
-      <p>
-A portfolio page to showcase my services and projects with an elegant interface, simple and optimized for performance.      </p>
-      <div class="project-tags">
-        <span class="meta-item">Performance UI</span>
-        <span class="meta-item">Responsive</span>
-        <span class="meta-item">Accessibility</span>
-      </div>
-
-      
-    </div>
-
-  </section>
-
-
-
-
-
-  <section id="about" class="about">
-    <!-- About background (progressive reveal) -->
-    <div class="about-bg" aria-hidden="true"></div>
-    <div class="about-bg-overlay" aria-hidden="true"></div>
-
-    <h2>About Me</h2>
-
-
-  <div class="about-grid">
-    <div class="about-card">
-      <h3 class="card-title">Who I'm</h3>
-      <p>
-        I'm Salman Tawfik, a software engineer focused on building modern, performance-driven user experiences.
-        I enjoy turning designs into clean, responsive interfaces.
-      </p>
-      <div class="meta">
-        <span class="meta-item">HTML5</span>
-        <span class="meta-item">CSS3</span>
-         <span class="meta-item">C#</span>
-        <span class="meta-item">JavaScript</span>
-        <span class="meta-item">Typescript</span>
-        
-        
-      </div>
-    </div>
-
-    <div class="skills-card">
-      <h3 class="card-title">Skills</h3>
-      <div class="skills">
-        <div class="skill"><span class="dot"></span> Full Stack Development</div>
-        <div class="skill"><span class="dot"></span> ASP.NET Core</div>
-        <div class="skill"><span class="dot"></span> .NET</div>
-        <div class="skill"><span class="dot"></span> REST APIs</div>
-        <div class="skill"><span class="dot"></span> SQL / Databases</div>
-        <div class="skill"><span class="dot"></span> Authentication & Authorization</div>
-        <div class="skill"><span class="dot"></span> Responsive Design</div>
-        <div class="skill"><span class="dot"></span> UI/UX Implementation</div>
-        <div class="skill"><span class="dot"></span> Animation & Micro-interactions</div>
-        <div class="skill"><span class="dot"></span> Performance Mindset</div>
-        <div class="skill"><span class="dot"></span> Clean code</div>
-        <div class="skill"><span class="dot"></span>Figma</div>
-        <div class="skill"><span class="dot"></span> Bootstrap</div>
-      </div>
-
-    </div>
-  </div>
-
-  </section>
-
-  <section id="proficiency" class="proficiency">
-    <h2>Proficiency</h2>
-
-    <div class="proficiency-card">
-      <div class="progress-row" data-progress="90">
-        <div class="progress-head">
-          <span class="progress-label">ASP.NET Full Stack Development</span>
-          <span class="progress-percent">90%</span>
-        </div>
-        <div class="progress-track" aria-hidden="true">
-          <div class="progress-fill"></div>
-        </div>
-      </div>
-
-      <div class="progress-row" data-progress="95">
-        <div class="progress-head">
-          <span class="progress-label">Backend Development (C#/.NET)</span>
-          <span class="progress-percent">95%</span>
-        </div>
-        <div class="progress-track" aria-hidden="true">
-          <div class="progress-fill"></div>
-        </div>
-      </div>
-
-      <div class="progress-row" data-progress="85">
-        <div class="progress-head">
-          <span class="progress-label">Frontend Development (Web UI)</span>
-          <span class="progress-percent">85%</span>
-        </div>
-        <div class="progress-track" aria-hidden="true">
-          <div class="progress-fill"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="certifications" class="certifications">
-    <h2>Certifications</h2>
-
-    <div class="cert-grid">
-
-      <article class="cert-card">
-        <div class="cert-thumb" aria-hidden="true">
-          <img src="assets/تخرج.jpg" alt="" loading="lazy" />
-        </div>
-
-        <div class="cert-body">
-          <h3 class="cert-title">English Certificate </h3>
-          <p class="cert-meta">Issued By • Fluentcore learning </p>
-          <p class="cert-desc">Open the certificate PDF in a new tab.</p>
-
-          <div class="cert-actions">
-            <a class="cert-link" href="assets/Diploma Salman Tawfik.pdf" target="_blank" rel="noopener">View PDF</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="cert-card">
-        <div class="cert-thumb" aria-hidden="true">
-          <img src="assets/تخرج.jpg" alt="" loading="lazy" />
-        </div>
-
-        <div class="cert-body">
-          <h3 class="cert-title">ASP.NET full stack Certificate </h3>
-          <p class="cert-meta">Issued By • CLS Learning solutions </p>
-          <p class="cert-desc">Open the certificate PDF in a new tab.</p>
-
-          <div class="cert-actions">
-            <a class="cert-link" href="assets/New2.pdf" target="_blank" rel="noopener">View PDF</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="cert-card">
-        <div class="cert-thumb" aria-hidden="true">
-          <img src="assets/تخرج.jpg" alt="" loading="lazy" />
-        </div>
-
-        <div class="cert-body">
-          <h3 class="cert-title">Graduation Certificate</h3>
-          <p class="cert-meta">Issued By • Misr Higher Institute For Commerce & Computers </p>
-          <p class="cert-desc">Open the certificate PDF in a new tab.</p>
-
-          <div class="cert-actions">
-            <a class="cert-link" href="assets/New.pdf" target="_blank" rel="noopener">View PDF</a>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <section id="experience" class="experience">
-    <h2>Experience</h2>
-
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3>Frontend Engineer</h3>
-          <p class="timeline-date">2023 - Present</p>
-          <p>
-            Building interactive web experiences with a strong focus on UI polish, accessibility, and performance.
-          </p>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <h3>Web Developer</h3>
-          <p class="timeline-date">2021 - 2023</p>
-          <p>
-            Delivered responsive landing pages and feature UI while maintaining a clean codebase and reusable layouts.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="contact">
-    <div class="contact-box" aria-label="Contact box">
-
-      <!-- EmailJS SDK (used by contact form) -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>      <h2 class="contact-title">Contact Me</h2>
-      <p class="contact-desc">
-        Send me a message and I’ll get back to you as soon as possible.
-      </p>
-
-      <div class="contact-social" aria-label="Contact methods">
-        <!-- LinkedIn -->
-        <a class="contact-social-link" href="https://www.linkedin.com/in/salman-tawfiq-8188b3192?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener" aria-label="LinkedIn" data-tooltip="LinkedIn">
-          <span class="social-icon" aria-hidden="true">in</span>
-        </a>
-
-        <!-- Phone -->
-        <a class="contact-social-link" href="tel:+96546214446" aria-label="Phone" data-tooltip="Phone">
-          <span class="social-icon" aria-hidden="true">☎</span>
-        </a>
-      </div>
-
-      <!-- Interactive Contact Form -->
-      <form id="contact-form" class="contact-form" autocomplete="on">
-        <div class="form-grid">
-          <div class="field">
-            <label class="field-label" for="contact-name">Name</label>
-            <input id="contact-name" name="name" type="text" class="field-input" placeholder="Your name" required minlength="2" />
-          </div>
-
-          <div class="field">
-            <label class="field-label" for="contact-email">Email</label>
-            <input id="contact-email" name="email" type="email" class="field-input" placeholder="you@example.com" required />
-          </div>
-        </div>
-
-        <div class="field">
-          <label class="field-label" for="contact-message">Message</label>
-          <textarea id="contact-message" name="message" class="field-input field-textarea" placeholder="Write your message..." required minlength="10"></textarea>
-        </div>
-
-        <div class="form-actions">
-          <button class="primary-btn contact-send" type="submit" data-loading-text="Sending...">
-            <span class="btn-text">Send Message</span>
-            <span class="btn-spinner" aria-hidden="true"></span>
-          </button>
-          <div id="contact-status" class="contact-status" role="status" aria-live="polite"></div>
-        </div>
-
-        <p class="form-hint">
-          By sending, you agree to be contacted back regarding your message.
+        <p>
+          I design and develop responsive, scalable, and secure web solutions
+          from database to user interface, turning complex problems into
+          seamless digital experiences.
         </p>
-      </form>
 
-    </div>
-  </section>
+        <div class="buttons">
+          <a class="primary-btn" href="#projects">View Projects</a>
+          <a class="secondary-btn" href="#about">Skills</a>
+        </div>
+      </div>
 
+      <!-- Right Side Circle -->
+      <div class="hero-visual" aria-hidden="true">
+       
 
+        <div class="circle">
+          <div class="circle-inner"></div>
+          <div class="circle-ring"></div>
+        </div>
 
+        <div class="profile-wrap" aria-hidden="true">
+          <img
+            class="profile-img"
+            src="profile.jpg.jpeg"
+            alt="Salman Tawfik"
+            loading="eager"
+          />
+          <div class="profile-glow"></div>
+        </div>
 
-  <!-- Three.js (3D interactions) -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-  <script src="three-app.js"></script>
-  <script src="script.js"></script>
-</body>
+        <div class="cursor-orb"></div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects">
+      <h2>My Projects</h2>
+
+      <!-- Project 1: To Do List -->
+      <div class="project-card">
+        <img
+          class="project-img"
+          src="assets/profile.jpg.jpeg"
+          alt="To Do List preview"
+          loading="lazy"
+        />
+        <h3>To Do List</h3>
+        <p>
+          A feature-rich To-Do List application that allows users to add,
+          manage, and delete tasks. It utilizes LocalStorage for persistent data
+          storage, ensuring tasks remain saved even after refreshing the page
+        </p>
+        <div class="project-tags">
+          <span class="meta-item">JavaScript</span>
+          <span class="meta-item">LocalStorage</span>
+        </div>
+      </div>
+
+      <!-- Project 2: Simple Store (no links, no images provided) -->
+      <div class="project-card">
+        <img
+          class="project-img"
+          src="assets/profile.jpg.jpeg"
+          alt="Simple Store preview"
+          loading="lazy"
+        />
+        <h3>Simple Store</h3>
+        <p>
+          A simple store to display products in an organized manner with a
+          responsive interface and clean components for browsing and selection.
+        </p>
+        <div class="project-tags">
+          <span class="meta-item">HTML</span>
+          <span class="meta-item">CSS</span>
+          <span class="meta-item">JavaScript</span>
+        </div>
+      </div>
+
+      <!-- Project 3: Portfolio / Landing (no links, no images provided) -->
+
+      <div class="project-card">
+        <img
+          class="project-img"
+          src="assets/protofolio.png"
+          alt="Portfolio Landing preview"
+          loading="lazy"
+        />
+        <h3>Portfolio Landing</h3>
+        <p>
+          A portfolio page to showcase my services and projects with an elegant
+          interface, simple and optimized for performance.
+        </p>
+        <div class="project-tags">
+          <span class="meta-item">Performance UI</span>
+          <span class="meta-item">Responsive</span>
+          <span class="meta-item">Accessibility</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <!-- About background (progressive reveal) -->
+      <div class="about-bg" aria-hidden="true"></div>
+      <div class="about-bg-overlay" aria-hidden="true"></div>
+
+      <h2>About Me</h2>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <h3 class="card-title">Who I'm</h3>
+          <p>
+            I'm Salman Tawfik, a software engineer focused on building modern,
+            performance-driven user experiences. I enjoy turning designs into
+            clean, responsive interfaces.
+          </p>
+          <div class="meta">
+            <span class="meta-item">HTML5</span>
+            <span class="meta-item">CSS3</span>
+            <span class="meta-item">C#</span>
+            <span class="meta-item">JavaScript</span>
+            <span class="meta-item">Typescript</span>
+          </div>
+        </div>
+
+        <div class="skills-card">
+          <h3 class="card-title">Skills</h3>
+          <div class="skills">
+            <div class="skill">
+              <span class="dot"></span> Full Stack Development
+            </div>
+            <div class="skill"><span class="dot"></span> ASP.NET Core</div>
+            <div class="skill"><span class="dot"></span> .NET</div>
+            <div class="skill"><span class="dot"></span> REST APIs</div>
+            <div class="skill"><span class="dot"></span> SQL / Databases</div>
+            <div class="skill">
+              <span class="dot"></span> Authentication & Authorization
+            </div>
+            <div class="skill"><span class="dot"></span> Responsive Design</div>
+            <div class="skill">
+              <span class="dot"></span> UI/UX Implementation
+            </div>
+            <div class="skill">
+              <span class="dot"></span> Animation & Micro-interactions
+            </div>
+            <div class="skill">
+              <span class="dot"></span> Performance Mindset
+            </div>
+            <div class="skill"><span class="dot"></span> Clean code</div>
+            <div class="skill"><span class="dot"></span>Figma</div>
+            <div class="skill"><span class="dot"></span> Bootstrap</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proficiency" class="proficiency">
+      <h2>Proficiency</h2>
+
+      <div class="proficiency-card">
+        <div class="progress-row" data-progress="80">
+          <div class="progress-head">
+            <span class="progress-label">ASP.NET Full Stack Development</span>
+            <span class="progress-percent">80%</span>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <div class="progress-fill"></div>
+          </div>
+        </div>
+
+        <div class="progress-row" data-progress="80">
+          <div class="progress-head">
+            <span class="progress-label">Backend Development (C#/.NET)</span>
+            <span class="progress-percent">80%</span>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <div class="progress-fill"></div>
+          </div>
+        </div>
+
+        <div class="progress-row" data-progress="99">
+          <div class="progress-head">
+            <span class="progress-label">Frontend Development (Web UI)</span>
+            <span class="progress-percent">99%</span>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <div class="progress-fill"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications" class="certifications">
+      <h2>Certifications</h2>
+
+      <div class="cert-grid">
+        <article class="cert-card">
+          <div class="cert-thumb" aria-hidden="true">
+            <img src="assets/تخرج.jpg" alt="" loading="lazy" />
+          </div>
+
+          <div class="cert-body">
+            <h3 class="cert-title">English Certificate</h3>
+            <p class="cert-meta">Issued By • Fluentcore learning</p>
+            <p class="cert-desc">Open the certificate PDF in a new tab.</p>
+
+            <div class="cert-actions">
+              <a
+                class="cert-link"
+                href="assets/Diploma Salman Tawfik.pdf"
+                target="_blank"
+                rel="noopener"
+                >View PDF</a
+              >
+            </div>
+          </div>
+        </article>
+
+        <article class="cert-card">
+          <div class="cert-thumb" aria-hidden="true">
+            <img src="assets/تخرج.jpg" alt="" loading="lazy" />
+          </div>
+
+          <div class="cert-body">
+            <h3 class="cert-title">ASP.NET full stack Certificate</h3>
+            <p class="cert-meta">Issued By • CLS Learning solutions</p>
+            <p class="cert-desc">Open the certificate PDF in a new tab.</p>
+
+            <div class="cert-actions">
+              <a
+                class="cert-link"
+                href="assets/New2.pdf"
+                target="_blank"
+                rel="noopener"
+                >View PDF</a
+              >
+            </div>
+          </div>
+        </article>
+
+        <article class="cert-card">
+          <div class="cert-thumb" aria-hidden="true">
+            <img src="assets/تخرج.jpg" alt="" loading="lazy" />
+          </div>
+
+          <div class="cert-body">
+            <h3 class="cert-title">Graduation Certificate</h3>
+            <p class="cert-meta">
+              Issued By • Misr Higher Institute For Commerce & Computers
+            </p>
+            <p class="cert-desc">Open the certificate PDF in a new tab.</p>
+
+            <div class="cert-actions">
+              <a
+                class="cert-link"
+                href="assets/New.pdf"
+                target="_blank"
+                rel="noopener"
+                >View PDF</a
+              >
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="experience">
+      <h2>Experience</h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>.NET Full stack Developer</h3>
+            <p class="timeline-date">2025 - Present</p>
+            <p>
+              Building robust web applications using ASP.NET Core and modern
+              frontend technologies. Focusing on API development, database
+              optimization, and implementing Clean Architecture principles.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3>Management Information Systems</h3>
+            <p class="timeline-date">2020 - 2024</p>
+            <p>
+              Studied Management Information Systems (MIS), focusing on core programming concepts, software engineering, and database management. Developed academic projects and built a solid foundation in system logic and web development.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="contact-box" aria-label="Contact box">
+        <!-- EmailJS SDK (used by contact form) -->
+        <script
+          type="text/javascript"
+          src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+        ></script>
+
+        <h2 class="contact-title">Contact Me</h2>
+
+        <p class="contact-desc">
+          Send me a message and I’ll get back to you as soon as possible.
+        </p>
+
+        <div class="contact-social" aria-label="Contact methods">
+          <!-- LinkedIn -->
+          <a
+            class="contact-social-link"
+            href="https://www.linkedin.com/in/salman-tawfiq-8188b3192?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
+            target="_blank"
+            rel="noopener"
+            aria-label="LinkedIn"
+            data-tooltip="LinkedIn"
+          >
+            <span class="social-icon" aria-hidden="true">in</span>
+          </a>
+
+          <!-- Phone -->
+          <a
+            class="contact-social-link"
+            href="tel:+966546214446"
+            aria-label="Phone"
+            data-tooltip="Phone"
+          >
+            <span class="social-icon" aria-hidden="true">☎</span>
+          </a>
+        </div>
+
+        <!-- Interactive Contact Form -->
+        <form id="contact-form" class="contact-form" autocomplete="on">
+          <div class="form-grid">
+            <div class="field">
+              <label class="field-label" for="contact-name">Name</label>
+              <input
+                id="contact-name"
+                name="name"
+                type="text"
+                class="field-input"
+                placeholder="Your name"
+                required
+                minlength="2"
+              />
+            </div>
+
+            <div class="field">
+              <label class="field-label" for="contact-email">Email</label>
+              <input
+                id="contact-email"
+                name="email"
+                type="email"
+                class="field-input"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="contact-message">Message</label>
+            <textarea
+              id="contact-message"
+              name="message"
+              class="field-input field-textarea"
+              placeholder="Write your message..."
+              required
+              minlength="10"
+            ></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button
+              class="primary-btn contact-send"
+              type="submit"
+              data-loading-text="Sending..."
+            >
+              <span class="btn-text">Send Message</span>
+              <span class="btn-spinner" aria-hidden="true"></span>
+            </button>
+            <div
+              id="contact-status"
+              class="contact-status"
+              role="status"
+              aria-live="polite"
+            ></div>
+          </div>
+
+          <p class="form-hint">
+            By sending, you agree to be contacted back regarding your message.
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
 </html>
-
-
-
-
-
-

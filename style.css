@@ -338,7 +338,6 @@ body {
   contain: paint;
 }
 
-
 .profile-img {
   width: 100%;
   height: 100%;
@@ -357,7 +356,6 @@ body {
   --profile-glow-blur: clamp(16px, 3.2vw, 28px);
   --profile-glow-scale: clamp(1.35, 1.9vw, 1.75);
 }
-
 
 .cursor-orb {
   position: absolute;
@@ -680,7 +678,6 @@ section {
     background-position: center;
     background-size: contain;
   }
-
 
   .about-bg-overlay {
     background:
@@ -1136,7 +1133,6 @@ h2 {
     border-radius: 50% !important;
   }
 
-
   .circle {
     position: absolute;
     left: 50%;
@@ -1166,7 +1162,6 @@ h2 {
     width: clamp(220px, 70vw, 240px);
     height: clamp(220px, 70vw, 240px);
   }
-
 
   .hero-text p {
     width: 100%;
@@ -1312,21 +1307,33 @@ h2 {
   transition: opacity 0.3s ease;
 }
 
-/* When proficiency becomes visible, animate to the target */
-#proficiency.is-proficiency-visible .progress-row {
-  --target: attr(data-progress number);
+/* When proficiency becomes visible, animate to the target.
+   Fix mobile issue by avoiding `attr()` inside `calc()` (inconsistent across browsers).
+*/
+#proficiency.is-proficiency-visible
+  .progress-row[data-progress="80"]
+  .progress-fill {
+  width: 80%;
 }
 
-#proficiency.is-proficiency-visible .progress-row .progress-fill {
-  width: calc(var(--target) * 1%);
+#proficiency.is-proficiency-visible
+  .progress-row[data-progress="80"]
+  .progress-fill::after {
+  opacity: 0.35;
 }
 
-/* Fallback for browsers that don't support attr() in calc */
-.progress-row[data-progress="75"].is-activated .progress-fill {
-  width: 75%;
+#proficiency.is-proficiency-visible
+  .progress-row[data-progress="99"]
+  .progress-fill {
+  width: 99%;
 }
 
-.progress-row[data-progress="99"].is-activated .progress-fill {
+/* Activate fills once (JS adds `is-activated`) */
+.progress-row.is-activated[data-progress="80"] .progress-fill {
+  width: 80%;
+}
+
+.progress-row.is-activated[data-progress="99"] .progress-fill {
   width: 99%;
 }
 

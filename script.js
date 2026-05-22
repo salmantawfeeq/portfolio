@@ -15,10 +15,27 @@
   const logo = document.querySelector(".navbar .logo");
   if (logo) {
     logo.style.cursor = "pointer";
+
+    const goHome = () => {
+      const home = document.getElementById("home");
+      if (home) {
+        home.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    };
+
     logo.addEventListener("click", (e) => {
-      // Avoid any accidental selection
       e.preventDefault?.();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      goHome();
+    });
+
+    // Keyboard accessibility (mobile/desktop friendly)
+    logo.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        goHome();
+      }
     });
   }
 

@@ -659,7 +659,7 @@ section {
 }
 
 .about-bg {
-  background-image: url("background.jpg.png");
+  background-image: url("assets/logo1.jpg.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -1035,6 +1035,17 @@ h2 {
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
 }
 
+/* Add fallback background colors for certificate images */
+.cert-thumb img[alt*="English"] {
+  background-color: #3a5a78; /* A shade of blue */
+}
+.cert-thumb img[alt*="ASP.NET"] {
+  background-color: #6f42c1; /* A shade of purple */
+}
+.cert-thumb img[alt*="Graduation"] {
+  background-color: #b08d57; /* A shade of gold/brown */
+}
+
 .cert-body {
   padding: 18px 18px;
   display: flex;
@@ -1290,21 +1301,27 @@ h2 {
     0 0 18px rgba(255, 123, 0, 0.35),
     0 0 38px rgba(123, 44, 255, 0.22);
   position: relative;
+  overflow: hidden;
   transition: width 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .progress-fill::after {
   content: "";
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
   background: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0.3),
     rgba(255, 255, 255, 0)
   );
   opacity: 0.35;
+  /* Keep shimmer bounded by the fill width */
   transform: translateX(-40%);
   transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 /* When proficiency becomes visible, animate to the target.

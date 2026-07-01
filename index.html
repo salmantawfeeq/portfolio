@@ -6,11 +6,18 @@
     <title>Salman Tawfik - Software Engineer</title>
 
     <!-- Favicon / Icons -->
-    <link rel="icon" type="image/png" href="logo1.jpg.png" sizes="32x32" />
-    <link rel="apple-touch-icon" href="logo1.jpg.png" sizes="180x180" />
+    <link rel="icon" type="image/png" href="assets/logo1.jpg.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="assets/logo1.jpg.png" sizes="180x180" />
 
     <link rel="stylesheet" href="style.css" />
 
+    <!-- Custom styles to fix link underline on project card -->
+    <style>
+      .project-card-link {
+        text-decoration: none;
+        color: inherit;
+      }
+    </style>
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
@@ -29,7 +36,7 @@
       <ul class="nav-links">
         <li><a href="#projects">Projects</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
+        <li><a href="#experience">Background</a></li>
         <li><a href="#certifications">Certifications</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -91,7 +98,7 @@
         <div class="profile-wrap" aria-hidden="true">
           <img
             class="profile-img"
-            src="profile.jpg.jpeg"
+            src="assets/profile.jpg.jpeg"
             alt="Salman Tawfik"
             loading="eager"
           />
@@ -106,44 +113,29 @@
       <h2>My Projects</h2>
 
       <!-- Project 1: To Do List -->
-      <div class="project-card">
-        <img
-          class="project-img"
-          src="assets/profile.jpg.jpeg"
-          alt="To Do List preview"
-          loading="lazy"
-        />
-        <h3>To Do List</h3>
-        <p>
-          A feature-rich To-Do List application that allows users to add,
-          manage, and delete tasks. It utilizes LocalStorage for persistent data
-          storage, ensuring tasks remain saved even after refreshing the page
-        </p>
-        <div class="project-tags">
-          <span class="meta-item">JavaScript</span>
-          <span class="meta-item">LocalStorage</span>
-        </div>
-      </div>
+      
 
       <!-- Project 2: Simple Store (no links, no images provided) -->
-      <div class="project-card">
-        <img
-          class="project-img"
-          src="assets/profile.jpg.jpeg"
-          alt="Simple Store preview"
-          loading="lazy"
-        />
-        <h3>Simple Store</h3>
-        <p>
-          A simple store to display products in an organized manner with a
-          responsive interface and clean components for browsing and selection.
-        </p>
-        <div class="project-tags">
-          <span class="meta-item">HTML</span>
-          <span class="meta-item">CSS</span>
-          <span class="meta-item">JavaScript</span>
+      <a href="https://salmantawfeeq.github.io/halwani-elmsry/" target="_blank" rel="noopener" class="project-card-link">
+        <div class="project-card">
+          <img
+            class="project-img"
+            src="assets/المصري.png"
+            alt="Halwani-Elmsry preview"
+            loading="lazy"
+          />
+          <h3>Halwani-Elmsry</h3>
+          <p>
+             Developed a full-stack platform for 'Halwani-Elmsry', featuring a robust Admin Dashboard that provides comprehensive
+            control over the entire system. The dashboard enables seamless management of products, order processing, and user data oversight. Leveraging the power of ASP.NET for backend operations and the scalability of Firebase for real-time database management, the project ensures high performance, secure data handling, and an intuitive administrative experience.
+          </p>
+          <div class="project-tags">
+            <span class="meta-item">HTML</span>
+            <span class="meta-item">CSS</span>
+            <span class="meta-item">JavaScript</span>
+          </div>
         </div>
-      </div>
+      </a>
 
       <!-- Project 3: Portfolio / Landing (no links, no images provided) -->
 
@@ -197,10 +189,13 @@
             <div class="skill">
               <span class="dot"></span> Full Stack Development
             </div>
+            <div class="skill"><span class="dot"></span> FrontEnd</div>
+            <div class="skill"><span class="dot"></span> BackEnd</div>
             <div class="skill"><span class="dot"></span> ASP.NET Core</div>
             <div class="skill"><span class="dot"></span> .NET</div>
             <div class="skill"><span class="dot"></span> REST APIs</div>
             <div class="skill"><span class="dot"></span> SQL / Databases</div>
+            <div class="skill"><span class="dot"></span> Firebase</div>
             <div class="skill">
               <span class="dot"></span> Authentication & Authorization
             </div>
@@ -264,7 +259,11 @@
       <div class="cert-grid">
         <article class="cert-card">
           <div class="cert-thumb" aria-hidden="true">
-            <img src="assets/تخرج.jpg" alt="" loading="lazy" />
+            <img
+              src="assets/انجليزي.png"
+              alt="English Certificate Preview"
+              loading="lazy"
+            />
           </div>
 
           <div class="cert-body">
@@ -275,7 +274,7 @@
             <div class="cert-actions">
               <a
                 class="cert-link"
-                href="assets/Diploma Salman Tawfik.pdf"
+                href="assets/برمجة.png"
                 target="_blank"
                 rel="noopener"
                 >View PDF</a
@@ -286,18 +285,22 @@
 
         <article class="cert-card">
           <div class="cert-thumb" aria-hidden="true">
-            <img src="assets/تخرج.jpg" alt="" loading="lazy" />
+            <img
+              src="assets/برمجة.png"
+              alt="ASP.NET full stack Certificate Preview"
+              loading="lazy"
+            />
           </div>
 
           <div class="cert-body">
             <h3 class="cert-title">ASP.NET full stack Certificate</h3>
-            <p class="cert-meta">Issued By • CLS Learning solutions</p>
+            <p class="cert-meta">Issued By • Microsoft partner</p>
             <p class="cert-desc">Open the certificate PDF in a new tab.</p>
 
             <div class="cert-actions">
               <a
                 class="cert-link"
-                href="assets/New2.pdf"
+                href="assets/الشهاده.png"
                 target="_blank"
                 rel="noopener"
                 >View PDF</a
@@ -308,7 +311,11 @@
 
         <article class="cert-card">
           <div class="cert-thumb" aria-hidden="true">
-            <img src="assets/تخرج.jpg" alt="" loading="lazy" />
+            <img
+              src="assets/الشهاده.png"
+              alt="Graduation Certificate Preview"
+              loading="lazy"
+            />
           </div>
 
           <div class="cert-body">
@@ -333,7 +340,7 @@
     </section>
 
     <section id="experience" class="experience">
-      <h2>Experience</h2>
+      <h2>Background</h2>
 
       <div class="timeline">
         <div class="timeline-item">
@@ -400,6 +407,22 @@
             data-tooltip="Phone"
           >
             <span class="social-icon" aria-hidden="true">☎</span>
+          </a>
+
+          <!-- WhatsApp -->
+          <a
+            class="contact-social-link"
+            href="https://wa.me/201026662599"
+            target="_blank"
+            rel="noopener"
+            aria-label="WhatsApp"
+            data-tooltip="WhatsApp"
+          >
+            <span class="social-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" width="24" height="24">
+                <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 .2c57.1 0 109.7 21.8 149.4 61.5 39.8 39.8 61.5 92.3 61.5 149.4 0 119.3-96.9 216.2-216.2 216.2a212.2 212.2 0 0 1 -102.8-27.2l-7.6-4.5-76.3 20 20.5-74.4-4.9-7.9c-18.5-29.8-28.2-63.6-28.2-98.8 0-119.3 96.9-216.2 216.2-216.2zm105.9 161.2c-6.6-3.3-39.4-19.4-45.6-21.6-6.2-2.2-10.7-3.3-15.2 3.3-4.5 6.6-17.3 21.6-21.2 26-3.9 4.5-7.8 5-14.4 1.7-6.6-3.3-27.9-10.3-53.2-32.9-19.7-17.6-33-39.4-36.9-46-3.9-6.6-.4-10.2 2.9-13.5 3-3 6.6-7.8 9.9-10.4 3.3-2.6 4.5-4.5 6.6-7.8 2.2-3.3 1.1-6.2-.5-9.4s-15.2-36.5-20.8-50.2c-5.6-13.7-11.3-11.9-15.2-12.2-3.6-.2-7.8-.2-12.2-.2-4.5 0-11.8 1.7-18 8.1-6.2 6.6-23.6 23-23.6 56.1 0 33.1 24.1 65 27.4 69.5 3.3 4.5 47.1 71.2 115.2 101.2 16.5 7.5 29.5 11.9 39.8 15.2 10.2 3.3 19.4 2.8 26.7 1.7 7.8-1.1 24.4-10 27.9-19.4 3.6-9.4 3.6-17.3 2.5-19.4-1.1-2.2-4.5-3.3-9.4-5.5z"/>
+              </svg>
+            </span>
           </a>
         </div>
 

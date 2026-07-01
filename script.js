@@ -254,9 +254,9 @@
             if (entry.isIntersecting) {
               proficiency.classList.add("is-proficiency-visible");
               // Activate fills once
-              $$(".progress-row", proficiency).forEach((row) =>
-                row.classList.add("is-activated"),
-              );
+              $$(".progress-row", proficiency).forEach((row) => {
+                row.classList.add("is-activated");
+              });
             }
           }
         },

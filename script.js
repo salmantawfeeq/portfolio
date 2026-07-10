@@ -330,4 +330,47 @@
       );
     }
   }
+  // Project Galleries (carousel) - simple prev/next per project card
+  const galleries = $$("[data-gallery]");
+
+  function setupGallery(galleryEl) {
+    const track = galleryEl.querySelector(".gallery-track");
+    const items = track ? Array.from(track.querySelectorAll("img")) : [];
+    const prevBtn = galleryEl.querySelector(".gallery-btn.prev");
+    const nextBtn = galleryEl.querySelector(".gallery-btn.next");
+
+    if (!track || items.length <= 1) return;
+
+    let index = 0;
+
+    function render() {
+      track.style.transform = `translateX(${-index * 100}%)`;
+    }
+
+    function goNext() {
+      index = (index + 1) % items.length;
+      render();
+    }
+
+    function goPrev() {
+      index = (index - 1 + items.length) % items.length;
+      render();
+    }
+
+    prevBtn?.addEventListener("click", goPrev);
+    nextBtn?.addEventListener("click", goNext);
+
+    // Keyboard support when focus is inside gallery
+    galleryEl.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") goPrev();
+      if (e.key === "ArrowRight") goNext();
+    });
+
+    render();
+  }
+
+  if (galleries.length) {
+    galleries.forEach(setupGallery);
+  }
 })();
+

@@ -40,24 +40,46 @@
   }
 
   // Navbar links +  button
-  document.addEventListener("click", (e) => {
-    const a = e.target.closest('a[href^="#"], button[data-scroll]');
-    if (!a) return;
+  // Smooth scroll for in-page links (mobile-friendly)
+  // Use pointerup + click fallback to avoid touch quirks on some mobile browsers.
+  function handleInPageNav(targetEl, e) {
+    if (!targetEl) return;
 
     // Anchor links
-    if (a.tagName.toLowerCase() === "a") {
-      const href = a.getAttribute("href");
+    if (targetEl.tagName.toLowerCase() === "a") {
+      const href = targetEl.getAttribute("href");
       if (!href || href === "#") return;
-      e.preventDefault();
+
+      // Prevent default only for hash navigation, so we fully control the smooth behavior.
+      // This fixes inconsistent touch/click scrolling on mobile.
+      e.preventDefault?.();
       smoothScrollTo(href);
+      return;
     }
 
     // Buttons
-    if (a.tagName.toLowerCase() === "button" && a.dataset.scroll) {
-      e.preventDefault();
-      smoothScrollTo(a.dataset.scroll);
+    if (targetEl.tagName.toLowerCase() === "button" && targetEl.dataset.scroll) {
+      e.preventDefault?.();
+      smoothScrollTo(targetEl.dataset.scroll);
     }
+  }
+
+  const navDelegationSelector = 'a[href^="#"], button[data-scroll]';
+
+  document.addEventListener("pointerup", (e) => {
+    // Only handle primary interactions (tap/click)
+    const a = e.target.closest(navDelegationSelector);
+    if (!a) return;
+    handleInPageNav(a, e);
   });
+
+  // Fallback for desktops/browsers where pointerup isn't reliable
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest(navDelegationSelector);
+    if (!a) return;
+    handleInPageNav(a, e);
+  });
+
 
   // Active section highlight (scroll spy)
   const nav = document.querySelector(".navbar");
@@ -357,8 +379,26 @@
       render();
     }
 
-    prevBtn?.addEventListener("click", goPrev);
-    nextBtn?.addEventListener("click", goNext);
+    // Prevent link navigation/selection issues inside <a> wrappers on mobile
+    const blockTouch = (ev) => {
+      ev.preventDefault?.();
+      ev.stopPropagation?.();
+    };
+
+    // click
+    prevBtn?.addEventListener("click", (ev) => {
+      blockTouch(ev);
+      goPrev();
+    });
+    nextBtn?.addEventListener("click", (ev) => {
+      blockTouch(ev);
+      goNext();
+    });
+
+    // touch / pointer
+    prevBtn?.addEventListener("pointerdown", (ev) => blockTouch(ev));
+    nextBtn?.addEventListener("pointerdown", (ev) => blockTouch(ev));
+
 
     // Keyboard support when focus is inside gallery
     galleryEl.addEventListener("keydown", (e) => {

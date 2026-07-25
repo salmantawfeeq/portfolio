@@ -1,27 +1,32 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Salman Tawfiq - Software Engineer</title>
+    <title>Salman Tawfiq | سلمان توفيق - Software Engineer</title>
     <meta
       name="description"
-      content="Salman Tawfiq is a software engineer specializing in ASP.NET Core full-stack development — building modern, scalable, and secure web applications from database to user interface."
+      content="Salman Tawfiq (سلمان توفيق) is a software engineer specializing in ASP.NET Core full-stack development — building modern, scalable, and secure web applications from database to user interface."
+    />
+    <meta
+      name="keywords"
+      content="Salman Tawfiq, سلمان توفيق, سلمان توفيق مصطفى, Software Engineer, ASP.NET Core Developer, مهندس برمجيات, مطور مواقع"
     />
     <link rel="canonical" href="https://salmantawfiq.com/" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://salmantawfiq.com/" />
-    <meta property="og:title" content="Salman Tawfiq - Software Engineer" />
+    <meta property="og:title" content="Salman Tawfiq | سلمان توفيق - Software Engineer" />
     <meta
       property="og:description"
       content="Software engineer specializing in ASP.NET Core full-stack development — building modern, scalable, and secure web applications from database to user interface."
     />
     <meta property="og:image" content="https://salmantawfiq.com/assets/profile-opt.jpg" />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ar_AR" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Salman Tawfiq - Software Engineer" />
+    <meta name="twitter:title" content="Salman Tawfiq | سلمان توفيق - Software Engineer" />
     <meta
       name="twitter:description"
       content="Software engineer specializing in ASP.NET Core full-stack development — building modern, scalable, and secure web applications from database to user interface."
@@ -43,29 +48,64 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700;800&display=swap"
       rel="stylesheet"
     />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Salman Tawfiq",
+        "alternateName": ["سلمان توفيق", "Salman Tawfiq Mustafa Mustafa"],
+        "jobTitle": "Software Engineer",
+        "url": "https://salmantawfiq.com/",
+        "image": "https://salmantawfiq.com/assets/profile-opt.jpg",
+        "sameAs": [
+          "https://www.linkedin.com/in/salman-tawfiq-8188b3192"
+        ],
+        "knowsLanguage": ["en", "ar"],
+        "description": "Software engineer specializing in ASP.NET Core full-stack development."
+      }
+    </script>
   </head>
 
   <body>
     <nav class="navbar">
-      <div class="logo" role="button" tabindex="0" aria-label="Go to top">
+      <div class="logo" role="button" tabindex="0" aria-label="Go to top" data-i18n-ar="سلمان توفيق">
         Salman Tawfiq
       </div>
 
       <ul class="nav-links">
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#experience">My Journey</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#projects" data-i18n-ar="المشاريع">Projects</a></li>
+        <li><a href="#about" data-i18n-ar="نبذة عني">About</a></li>
+        <li><a href="#certifications" data-i18n-ar="الشهادات">Certifications</a></li>
+        <li><a href="#experience" data-i18n-ar="مسيرتي">My Journey</a></li>
+        <li><a href="#contact" data-i18n-ar="تواصل معي">Contact</a></li>
       </ul>
       <span class="nav-underline" aria-hidden="true"></span>
 
-      <button class="nav-btn" type="button" data-scroll="#contact">
-        Contact Me
-      </button>
+      <div class="nav-actions">
+        <button
+          id="lang-toggle"
+          class="lang-toggle-btn"
+          type="button"
+          aria-label="Switch language / تبديل اللغة"
+        >
+          <span class="lang-toggle-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="M3 12h18"></path>
+              <path d="M12 3c2.4 2.7 3.8 6.2 3.8 9s-1.4 6.3-3.8 9c-2.4-2.7-3.8-6.2-3.8-9s1.4-6.3 3.8-9z"></path>
+            </svg>
+          </span>
+          <span class="lang-toggle-label">العربية</span>
+        </button>
+
+        <button class="nav-btn" type="button" data-scroll="#contact" data-i18n-ar="تواصل معي">
+          Contact Me
+        </button>
+      </div>
     </nav>
 
     <nav class="mobile-dock" aria-label="Section navigation">
@@ -78,7 +118,7 @@
             <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
           </svg>
         </span>
-        <span class="dock-label">Projects</span>
+        <span class="dock-label" data-i18n-ar="المشاريع">Projects</span>
       </a>
 
       <a href="#about" class="dock-item" data-dock="about">
@@ -88,7 +128,7 @@
             <path d="M4 20c0-4 4-6 8-6s8 2 8 6"></path>
           </svg>
         </span>
-        <span class="dock-label">About</span>
+        <span class="dock-label" data-i18n-ar="عني">About</span>
       </a>
 
       <a href="#certifications" class="dock-item" data-dock="certifications">
@@ -98,7 +138,7 @@
             <path d="M9 12.5 7 21 12 18.5 17 21 15 12.5"></path>
           </svg>
         </span>
-        <span class="dock-label">Certs</span>
+        <span class="dock-label" data-i18n-ar="الشهادات">Certs</span>
       </a>
 
       <a href="#experience" class="dock-item" data-dock="experience">
@@ -109,7 +149,7 @@
             <path d="M21 6v5"></path>
           </svg>
         </span>
-        <span class="dock-label">Journey</span>
+        <span class="dock-label" data-i18n-ar="مسيرتي">Journey</span>
       </a>
 
       <a href="#contact" class="dock-item" data-dock="contact">
@@ -119,7 +159,7 @@
             <path d="M3 7 12 13 21 7"></path>
           </svg>
         </span>
-        <span class="dock-label">Contact</span>
+        <span class="dock-label" data-i18n-ar="تواصل">Contact</span>
       </a>
 
       <span class="dock-indicator" aria-hidden="true"></span>
@@ -137,25 +177,26 @@
       <div class="glow glow2"></div>
 
       <div class="hero-text">
-        <span class="badge">Software Engineer</span>
+        <span class="badge" data-i18n-ar="مهندس برمجيات متكامل">Full-Stack Software Engineer</span>
 
         <h1>
-          <span class="type-line" data-type="Building">Building</span>
-          <span class="accent modern-label">Modern</span>
+          <span class="type-line" data-type="Engineering" data-i18n-ar="أهندس">Engineering</span>
+          <span class="accent modern-label" data-i18n-ar="أنظمة">Scalable</span>
           <br />
-          <span class="type-line" data-type="Web Experiences">Web Experiences</span>
+          <span class="type-line" data-type="Software Systems" data-i18n-ar="برمجية قابلة للتوسع">Software Systems</span>
           <br />
-          <span class="type-line" data-type="That Perform">That Perform</span>
+          <span class="type-line" data-type="That Deliver" data-i18n-ar="تُحقق نتائج ملموسة">That Deliver</span>
         </h1>
 
-        <p>
-          I design and develop responsive, scalable, and secure web solutions from database to user
-          interface, turning complex problems into seamless digital experiences.
+        <p data-i18n-ar="أصمم وأبني برمجيات قوية وآمنة وقابلة للتوسع — من الأنظمة الخلفية وواجهات RESTful APIs إلى التطبيقات المتكاملة (Full-Stack) — لحل المشكلات الهندسية المعقدة بكود نظيف وقابل للصيانة.">
+          I architect and build robust, secure, and scalable software — from backend systems and
+          RESTful APIs to full-stack applications — solving complex engineering problems with
+          clean, maintainable code.
         </p>
 
         <div class="buttons">
-          <a class="primary-btn" href="#projects">View Projects</a>
-          <a class="secondary-btn" href="#experience">My Journey</a>
+          <a class="primary-btn" href="#projects" data-i18n-ar="شاهد مشاريعي">View Projects</a>
+          <a class="secondary-btn" href="#experience" data-i18n-ar="مسيرتي المهنية">My Journey</a>
         </div>
       </div>
 
@@ -183,7 +224,7 @@
     </section>
 
     <section id="projects" class="projects">
-      <h2>My Projects</h2>
+      <h2 data-i18n-ar="مشاريعي">My Projects</h2>
 
       <a href="https://salmantawfeeq.github.io/Nashvell/" target="_blank" rel="noopener" class="project-card-link">
         <div class="project-card">
@@ -225,9 +266,9 @@
             <div class="gallery-dots" aria-hidden="true"></div>
           </div>
 
-          <h3>Nashvell International Trading Co.</h3>
+          <h3 data-i18n-ar="شركة نشفيل للتجارة الدولية">Nashvell International Trading Co.</h3>
 
-          <p>
+          <p data-i18n-ar="بناء موقع تعريفي ثنائي اللغة (عربي/إنجليزي) بالكامل لشركة نشفيل للتجارة الدولية، وهي شركة عالمية في التجارة واللوجستيات والاستثمار. تضم المنصة صفحات مخصصة للمنتجات، التقنية، المشاريع، الاستثمار، اللوجستيات، والإعلام، مع الاعتماد على Supabase للمصادقة وإدارة البيانات، ولوحة تحكم آمنة للموظفين للتحكم الكامل في محتوى الموقع.">
             Built a full bilingual (Arabic/English) corporate website for Nashvell International Trading Co.,
             a global trade, logistics, and investment company. The platform includes dedicated pages for products,
             technology, projects, investment, logistics, and media, backed by Supabase for authentication and data
@@ -240,22 +281,23 @@
               class="live-demo-btn"
               aria-label="Live Demo"
               data-open-url="https://salmantawfeeq.github.io/Nashvell/"
+              data-i18n-ar="نسخة تجريبية مباشرة"
             >
               Live Demo
             </button>
           </div>
 
           <div class="project-tags">
-            <span class="project-tag">Bilingual Arabic/English</span>
-            <span class="project-tag">Corporate Website</span>
-            <span class="project-tag">Supabase Backend</span>
-            <span class="project-tag">Row-Level Security</span>
-            <span class="project-tag">Staff Authentication</span>
-            <span class="project-tag">Admin Dashboard</span>
-            <span class="project-tag">Product & Category Management</span>
-            <span class="project-tag">Multi-page Architecture</span>
-            <span class="project-tag">EmailJS Contact Integration</span>
-            <span class="project-tag">Responsive Design</span>
+            <span class="project-tag" data-i18n-ar="ثنائي اللغة عربي/إنجليزي">Bilingual Arabic/English</span>
+            <span class="project-tag" data-i18n-ar="موقع تعريفي للشركة">Corporate Website</span>
+            <span class="project-tag" data-i18n-ar="خادم Supabase">Supabase Backend</span>
+            <span class="project-tag" data-i18n-ar="أمان على مستوى الصفوف (RLS)">Row-Level Security</span>
+            <span class="project-tag" data-i18n-ar="مصادقة الموظفين">Staff Authentication</span>
+            <span class="project-tag" data-i18n-ar="لوحة تحكم إدارية">Admin Dashboard</span>
+            <span class="project-tag" data-i18n-ar="إدارة المنتجات والفئات">Product & Category Management</span>
+            <span class="project-tag" data-i18n-ar="بنية متعددة الصفحات">Multi-page Architecture</span>
+            <span class="project-tag" data-i18n-ar="تكامل تواصل عبر EmailJS">EmailJS Contact Integration</span>
+            <span class="project-tag" data-i18n-ar="تصميم متجاوب">Responsive Design</span>
           </div>
         </div>
       </a>
@@ -293,9 +335,9 @@
             <div class="gallery-dots" aria-hidden="true"></div>
           </div>
 
-          <h3>Halwani-Elmsry</h3>
+          <h3 data-i18n-ar="حلواني المصري">Halwani-Elmsry</h3>
 
-          <p>
+          <p data-i18n-ar="تطوير منصة متكاملة (Full-Stack) لـ 'حلواني المصري'، تضم لوحة تحكم إدارية قوية توفر تحكمًا شاملاً في النظام بأكمله. تتيح لوحة التحكم إدارة سلسة للمنتجات، معالجة الطلبات، والإشراف على بيانات المستخدمين. وباستخدام قوة ASP.NET في عمليات الخادم وقابلية توسّع Firebase لإدارة قاعدة البيانات في الوقت الفعلي، يضمن المشروع أداءً عاليًا، وتعاملاً آمنًا مع البيانات، وتجربة إدارية سلسة.">
             Developed a full-stack platform for 'Halwani-Elmsry', featuring a robust Admin Dashboard that
             provides comprehensive control over the entire system. The dashboard enables seamless management
             of products, order processing, and user data oversight. Leveraging the power of ASP.NET for backend
@@ -309,27 +351,28 @@
               class="live-demo-btn"
               aria-label="Live Demo"
               data-open-url="https://salmantawfeeq.github.io/halwani-elmsry/"
+              data-i18n-ar="نسخة تجريبية مباشرة"
             >
               Live Demo
             </button>
           </div>
 
           <div class="project-tags">
-            <span class="project-tag">Customer Authentication</span>
-            <span class="project-tag">Product Catalog</span>
-            <span class="project-tag">Product Categories</span>
-            <span class="project-tag">Product Search</span>
-            <span class="project-tag">Shopping Cart</span>
-            <span class="project-tag">WhatsApp Order Integration</span>
-            <span class="project-tag">Product Details Page</span>
-            <span class="project-tag">Responsive Design</span>
-            <span class="project-tag">Admin Dashboard</span>
-            <span class="project-tag">Product Management</span>
-            <span class="project-tag">Category Management</span>
-            <span class="project-tag">Image Upload</span>
-            <span class="project-tag">Real-time Database Integration</span>
-            <span class="project-tag">Order Management</span>
-            <span class="project-tag">Promotional Popup Banner</span>
+            <span class="project-tag" data-i18n-ar="مصادقة العملاء">Customer Authentication</span>
+            <span class="project-tag" data-i18n-ar="كتالوج المنتجات">Product Catalog</span>
+            <span class="project-tag" data-i18n-ar="فئات المنتجات">Product Categories</span>
+            <span class="project-tag" data-i18n-ar="بحث عن المنتجات">Product Search</span>
+            <span class="project-tag" data-i18n-ar="سلة التسوق">Shopping Cart</span>
+            <span class="project-tag" data-i18n-ar="طلب عبر واتساب">WhatsApp Order Integration</span>
+            <span class="project-tag" data-i18n-ar="صفحة تفاصيل المنتج">Product Details Page</span>
+            <span class="project-tag" data-i18n-ar="تصميم متجاوب">Responsive Design</span>
+            <span class="project-tag" data-i18n-ar="لوحة تحكم إدارية">Admin Dashboard</span>
+            <span class="project-tag" data-i18n-ar="إدارة المنتجات">Product Management</span>
+            <span class="project-tag" data-i18n-ar="إدارة الفئات">Category Management</span>
+            <span class="project-tag" data-i18n-ar="رفع الصور">Image Upload</span>
+            <span class="project-tag" data-i18n-ar="تكامل قاعدة بيانات لحظية">Real-time Database Integration</span>
+            <span class="project-tag" data-i18n-ar="إدارة الطلبات">Order Management</span>
+            <span class="project-tag" data-i18n-ar="بانر ترويجي منبثق">Promotional Popup Banner</span>
           </div>
         </div>
       </a>
@@ -436,9 +479,9 @@
           <div class="gallery-dots" aria-hidden="true"></div>
         </div>
 
-        <h3>TaskFlow - Project Management System</h3>
+        <h3 data-i18n-ar="TaskFlow - نظام إدارة المشاريع">TaskFlow - Project Management System</h3>
 
-        <p>
+        <p data-i18n-ar="TaskFlow هو نظام متكامل (Full-Stack) لإدارة المشاريع، مصمم لمساعدة الفرق على تنظيم المشاريع، إسناد المهام، إدارة المستخدمين، متابعة التقدّم، وإصدار التقارير من خلال لوحة تحكم بديهية. يدعم التطبيق الصلاحيات المبنية على الأدوار، التعاون في المشاريع، تتبع المهام، إدارة الفرق، التحليلات، ولوحة إدارة كاملة.">
           TaskFlow is a full-stack project management system designed to help teams organize projects, assign tasks,
           manage users, monitor progress, and generate reports through an intuitive dashboard.
           The application supports role-based access, project collaboration, task tracking, team management, analytics,
@@ -446,20 +489,20 @@
         </p>
 
         <div class="project-tags">
-          <span class="project-tag">Secure Authentication & Authorization</span>
-          <span class="project-tag">Role-Based Access Control (Admin / Manager / Employee)</span>
-          <span class="project-tag">Dashboard with real-time project statistics</span>
-          <span class="project-tag">Project Management</span>
-          <span class="project-tag">Task Assignment & Tracking</span>
-          <span class="project-tag">Kanban Board</span>
-          <span class="project-tag">Team & Department Management</span>
-          <span class="project-tag">Calendar View</span>
-          <span class="project-tag">Reports & Analytics</span>
-          <span class="project-tag">User Management</span>
-          <span class="project-tag">Category Management</span>
-          <span class="project-tag">Activity Logs</span>
-          <span class="project-tag">Email Notification Logs</span>
-          <span class="project-tag">Responsive Dark UI</span>
+          <span class="project-tag" data-i18n-ar="مصادقة وتفويض آمن">Secure Authentication & Authorization</span>
+          <span class="project-tag" data-i18n-ar="صلاحيات حسب الدور (مدير / مشرف / موظف)">Role-Based Access Control (Admin / Manager / Employee)</span>
+          <span class="project-tag" data-i18n-ar="لوحة تحكم بإحصائيات لحظية">Dashboard with real-time project statistics</span>
+          <span class="project-tag" data-i18n-ar="إدارة المشاريع">Project Management</span>
+          <span class="project-tag" data-i18n-ar="إسناد المهام ومتابعتها">Task Assignment & Tracking</span>
+          <span class="project-tag" data-i18n-ar="لوحة كانبان">Kanban Board</span>
+          <span class="project-tag" data-i18n-ar="إدارة الفرق والأقسام">Team & Department Management</span>
+          <span class="project-tag" data-i18n-ar="عرض التقويم">Calendar View</span>
+          <span class="project-tag" data-i18n-ar="التقارير والتحليلات">Reports & Analytics</span>
+          <span class="project-tag" data-i18n-ar="إدارة المستخدمين">User Management</span>
+          <span class="project-tag" data-i18n-ar="إدارة الفئات">Category Management</span>
+          <span class="project-tag" data-i18n-ar="سجلات النشاط">Activity Logs</span>
+          <span class="project-tag" data-i18n-ar="سجلات إشعارات البريد الإلكتروني">Email Notification Logs</span>
+          <span class="project-tag" data-i18n-ar="واجهة داكنة متجاوبة">Responsive Dark UI</span>
         </div>
       </div>
     </section>
@@ -468,16 +511,16 @@
       <div class="about-bg" aria-hidden="true"></div>
       <div class="about-bg-overlay" aria-hidden="true"></div>
 
-      <h2>About Me</h2>
+      <h2 data-i18n-ar="نبذة عني">About Me</h2>
 
       <div class="about-grid">
         <div class="about-card">
-          <h3 class="card-title">Who I'm</h3>
-          <p>
+          <h3 class="card-title" data-i18n-ar="من أنا">Who I'm</h3>
+          <p data-i18n-ar="أنا سلمان توفيق، مهندس برمجيات أركّز على بناء تجارب مستخدم حديثة تعتمد على الأداء. أستمتع بتحويل التصاميم إلى واجهات نظيفة ومتجاوبة تُستخدم بنفس الجودة التي تبدو بها.">
             I'm Salman Tawfiq, a software engineer focused on building modern, performance-driven user experiences.
             I enjoy turning designs into clean, responsive interfaces that feel as good to use as they look.
           </p>
-          <p>
+          <p data-i18n-ar="بدأت مسيرتي بدراسة نظم المعلومات الإدارية، ثم انتقلت إلى تطوير الواجهات الأمامية بشكل عملي، وأتّجه الآن نحو تطوير متكامل (Full-Stack) باستخدام ASP.NET Core — من بناء الـ APIs، وتصميم قواعد البيانات، إلى تسليم الميزات كاملة من البداية للنهاية. وعلى طول الطريق، صقلت فترة خدمتي في نظم المعلومات انضباطي وحرصي على الموثوقية تحت الضغط.">
             My path started with a degree in Management Information Systems, moved through hands-on frontend
             development, and is now centered on full-stack ASP.NET Core development — architecting APIs,
             structuring databases, and shipping features end-to-end. Along the way, my IT & Information Systems
@@ -486,11 +529,11 @@
         </div>
 
         <div class="skills-card">
-          <h3 class="card-title">Skills</h3>
+          <h3 class="card-title" data-i18n-ar="المهارات">Skills</h3>
 
           <div class="skills-groups">
             <div class="skills-group">
-              <h4 class="skills-group-title">Languages</h4>
+              <h4 class="skills-group-title" data-i18n-ar="لغات البرمجة">Languages</h4>
               <div class="skill-tags">
                 <span class="skill-tag">C#</span>
                 <span class="skill-tag">JavaScript</span>
@@ -501,7 +544,7 @@
             </div>
 
             <div class="skills-group">
-              <h4 class="skills-group-title">Backend &amp; Databases</h4>
+              <h4 class="skills-group-title" data-i18n-ar="الخلفية البرمجية وقواعد البيانات">Backend &amp; Databases</h4>
               <div class="skill-tags">
                 <span class="skill-tag">ASP.NET Core</span>
                 <span class="skill-tag">.NET</span>
@@ -510,28 +553,28 @@
                 <span class="skill-tag">PostgreSQL</span>
                 <span class="skill-tag">Firebase</span>
                 <span class="skill-tag">Supabase</span>
-                <span class="skill-tag">Authentication &amp; Authorization</span>
+                <span class="skill-tag" data-i18n-ar="المصادقة والتفويض">Authentication &amp; Authorization</span>
               </div>
             </div>
 
             <div class="skills-group">
-              <h4 class="skills-group-title">Frontend &amp; UI/UX</h4>
+              <h4 class="skills-group-title" data-i18n-ar="الواجهة الأمامية وتجربة المستخدم">Frontend &amp; UI/UX</h4>
               <div class="skill-tags">
-                <span class="skill-tag">Responsive Design</span>
-                <span class="skill-tag">UI/UX Implementation</span>
+                <span class="skill-tag" data-i18n-ar="تصميم متجاوب">Responsive Design</span>
+                <span class="skill-tag" data-i18n-ar="تنفيذ واجهات المستخدم">UI/UX Implementation</span>
                 <span class="skill-tag">Bootstrap</span>
-                <span class="skill-tag">Animation &amp; Micro-interactions</span>
+                <span class="skill-tag" data-i18n-ar="الرسوم المتحركة والتفاعلات الدقيقة">Animation &amp; Micro-interactions</span>
                 <span class="skill-tag">Figma</span>
               </div>
             </div>
 
             <div class="skills-group">
-              <h4 class="skills-group-title">Tools &amp; Practices</h4>
+              <h4 class="skills-group-title" data-i18n-ar="الأدوات والممارسات">Tools &amp; Practices</h4>
               <div class="skill-tags">
                 <span class="skill-tag">Git &amp; GitHub</span>
                 <span class="skill-tag">Postman</span>
-                <span class="skill-tag">Clean Code</span>
-                <span class="skill-tag">Performance Mindset</span>
+                <span class="skill-tag" data-i18n-ar="كود نظيف">Clean Code</span>
+                <span class="skill-tag" data-i18n-ar="التركيز على الأداء">Performance Mindset</span>
               </div>
             </div>
           </div>
@@ -540,12 +583,12 @@
     </section>
 
     <section id="proficiency" class="proficiency">
-      <h2>Proficiency</h2>
+      <h2 data-i18n-ar="مستوى الإتقان">Proficiency</h2>
 
       <div class="proficiency-card">
         <div class="progress-row" data-progress="80">
           <div class="progress-head">
-            <span class="progress-label">ASP.NET Full Stack Development</span>
+            <span class="progress-label" data-i18n-ar="تطوير متكامل باستخدام ASP.NET">ASP.NET Full Stack Development</span>
             <span class="progress-percent">80%</span>
           </div>
           <div class="progress-track" aria-hidden="true"><div class="progress-fill"></div></div>
@@ -553,7 +596,7 @@
 
         <div class="progress-row" data-progress="80">
           <div class="progress-head">
-            <span class="progress-label">Backend Development</span>
+            <span class="progress-label" data-i18n-ar="تطوير الخلفية البرمجية">Backend Development</span>
             <span class="progress-percent">80%</span>
           </div>
           <div class="progress-track" aria-hidden="true"><div class="progress-fill"></div></div>
@@ -561,7 +604,7 @@
 
         <div class="progress-row" data-progress="99">
           <div class="progress-head">
-            <span class="progress-label">Frontend Development</span>
+            <span class="progress-label" data-i18n-ar="تطوير الواجهة الأمامية">Frontend Development</span>
             <span class="progress-percent">99%</span>
           </div>
           <div class="progress-track" aria-hidden="true"><div class="progress-fill"></div></div>
@@ -570,7 +613,7 @@
     </section>
 
     <section id="certifications" class="certifications">
-      <h2>Certifications</h2>
+      <h2 data-i18n-ar="الشهادات">Certifications</h2>
 
       <div class="cert-grid">
         <article class="cert-card">
@@ -579,11 +622,11 @@
           </div>
 
           <div class="cert-body">
-            <h3 class="cert-title">English Certificate</h3>
-            <p class="cert-meta">Issued By • FluentCore Learning</p>
-            <p class="cert-desc">Open the certificate PDF in a new tab.</p>
+            <h3 class="cert-title" data-i18n-ar="شهادة اللغة الإنجليزية">English Certificate</h3>
+            <p class="cert-meta" data-i18n-ar="جهة الإصدار • FluentCore Learning">Issued By • FluentCore Learning</p>
+            <p class="cert-desc" data-i18n-ar="افتح ملف الشهادة PDF في تبويب جديد.">Open the certificate PDF in a new tab.</p>
             <div class="cert-actions">
-<a class="cert-link" href="assets/Diploma%20Salman%20Tawfik.pdf" target="_blank" rel="noopener">View PDF</a>
+<a class="cert-link" href="assets/Diploma%20Salman%20Tawfik.pdf" target="_blank" rel="noopener" data-i18n-ar="عرض الملف PDF">View PDF</a>
             </div>
           </div>
         </article>
@@ -594,11 +637,11 @@
           </div>
 
           <div class="cert-body">
-            <h3 class="cert-title">ASP.NET Full Stack Certificate</h3>
-            <p class="cert-meta">Issued By • Microsoft Partner</p>
-            <p class="cert-desc">Open the certificate PDF in a new tab.</p>
+            <h3 class="cert-title" data-i18n-ar="شهادة ASP.NET Full Stack">ASP.NET Full Stack Certificate</h3>
+            <p class="cert-meta" data-i18n-ar="جهة الإصدار • Microsoft Partner">Issued By • Microsoft Partner</p>
+            <p class="cert-desc" data-i18n-ar="افتح ملف الشهادة PDF في تبويب جديد.">Open the certificate PDF in a new tab.</p>
             <div class="cert-actions">
-<a class="cert-link" href="assets/SALMAN%20TAWFIQ%20MUSTAFA%20MUSTAFA.pdf" target="_blank" rel="noopener">View PDF</a>
+<a class="cert-link" href="assets/SALMAN%20TAWFIQ%20MUSTAFA%20MUSTAFA.pdf" target="_blank" rel="noopener" data-i18n-ar="عرض الملف PDF">View PDF</a>
             </div>
           </div>
         </article>
@@ -606,15 +649,15 @@
     </section>
 
     <section id="experience" class="experience">
-      <h2>My Journey</h2>
+      <h2 data-i18n-ar="مسيرتي المهنية">My Journey</h2>
 
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <h3>.NET Full Stack Developer</h3>
-            <p class="timeline-date">2026 - Present</p>
-            <p>
+            <h3 data-i18n-ar="مطور متكامل باستخدام .NET">.NET Full Stack Developer</h3>
+            <p class="timeline-date" data-i18n-ar="2026 - حتى الآن">2026 - Present</p>
+            <p data-i18n-ar="أصمم وأطور تطبيقات ويب قابلة للتوسع وعالية الأداء باستخدام ASP.NET Core وأطر عمل حديثة للواجهة الأمامية. لدي خبرة في تطبيق Clean Architecture، وتصميم RESTful APIs آمنة، وتحسين استعلامات قواعد البيانات لأقصى كفاءة. تركيزي الأساسي هو تسليم كود نظيف وقابل للصيانة وتجارب مستخدم سلسة.">
               I architect and develop scalable, high-performance web applications using ASP.NET Core and modern frontend
               frameworks. I am experienced in implementing Clean Architecture, designing secure RESTful APIs, and optimizing
               database queries for maximum efficiency. My main focus is on delivering clean, maintainable code and seamless
@@ -626,9 +669,9 @@
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <h3>Frontend Web Development</h3>
-            <p class="timeline-date">2025 - 2026</p>
-            <p>
+            <h3 data-i18n-ar="تطوير واجهات الويب الأمامية">Frontend Web Development</h3>
+            <p class="timeline-date" data-i18n-ar="2025 - 2026">2025 - 2026</p>
+            <p data-i18n-ar="أتقنت الأساسيات الجوهرية لتطوير الويب، مع التركيز على بناء واجهات متجاوبة، دلالية، وسهلة الاستخدام. اكتسبت خبرة عملية في هيكلة صفحات الويب باستخدام HTML5، والتنسيق بتخطيطات CSS3 متقدمة، وتنفيذ التفاعل الديناميكي باستخدام JavaScript الحديثة.">
               I mastered the core fundamentals of web development, focusing on building responsive, semantic, and user-friendly
               interfaces. I gained hands-on experience in structuring web pages with HTML5, styling with advanced CSS3 layouts,
               and implementing dynamic interactivity using modern JavaScript.
@@ -639,9 +682,9 @@
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <h3>Military Service - IT & Information Systems Specialist</h3>
-            <p class="timeline-date">2024 - 2025</p>
-            <p>
+            <h3 data-i18n-ar="الخدمة العسكرية - أخصائي نظم معلومات وتقنية">Military Service - IT & Information Systems Specialist</h3>
+            <p class="timeline-date" data-i18n-ar="2024 - 2025">2024 - 2025</p>
+            <p data-i18n-ar="أديت الخدمة العسكرية الإلزامية ضمن فرع نظم المعلومات. خلال هذه الفترة، اكتسبت خبرة عملية في إدارة الأنظمة المحلية، ومعالجة الدعم الفني، وضمان سلامة البيانات. طوّرت انضباطًا مهنيًا قويًا، وروح عمل جماعي، ومهارات حل المشكلات في بيئات عالية المسؤولية.">
               I fulfilled my mandatory military service within the Information Systems Branch. During this period, I gained practical
               experience in managing local systems, handling technical support, and ensuring data integrity. I developed strong professional
               discipline, teamwork, and problem-solving skills under high-responsibility environments.
@@ -652,9 +695,9 @@
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <h3>Management Information Systems</h3>
-            <p class="timeline-date">2020 - 2024</p>
-            <p>
+            <h3 data-i18n-ar="نظم المعلومات الإدارية">Management Information Systems</h3>
+            <p class="timeline-date" data-i18n-ar="2020 - 2024">2020 - 2024</p>
+            <p data-i18n-ar="اكتسبت أساسًا متينًا في ردم الفجوة بين احتياجات الأعمال والتقنية. تخصصت في هندسة البرمجيات، وإدارة قواعد البيانات المتقدمة، ومنطق الأنظمة، حيث طوّرت عدة مشاريع أكاديمية متكاملة (Full-Stack) وصقلت مهاراتي التحليلية.">
               I acquired a solid foundation in bridging the gap between business needs and technology. I specialized in Software Engineering,
               advanced database management, and system logic, where I developed multiple academic full-stack projects and honed my analytical
               skills.
@@ -672,8 +715,8 @@
           defer
         ></script>
 
-        <h2 class="contact-title">Contact Me</h2>
-        <p class="contact-desc">Send me a message and I’ll get back to you as soon as possible.</p>
+        <h2 class="contact-title" data-i18n-ar="تواصل معي">Contact Me</h2>
+        <p class="contact-desc" data-i18n-ar="أرسل لي رسالة وسأرد عليك في أقرب وقت ممكن.">Send me a message and I’ll get back to you as soon as possible.</p>
 
         <div class="contact-social" aria-label="Contact methods">
           <a
@@ -683,6 +726,7 @@
             rel="noopener"
             aria-label="LinkedIn"
             data-tooltip="LinkedIn"
+            data-tooltip-ar="لينكدإن"
           >
             <span class="social-icon" aria-hidden="true">in</span>
           </a>
@@ -692,6 +736,7 @@
             href="tel:+966509139545"
             aria-label="Phone"
             data-tooltip="Phone"
+            data-tooltip-ar="هاتف"
           >
             <span class="social-icon" aria-hidden="true">☎</span>
           </a>
@@ -703,6 +748,7 @@
             rel="noopener"
             aria-label="WhatsApp"
             data-tooltip="WhatsApp"
+            data-tooltip-ar="واتساب"
           >
             <span class="social-icon" aria-hidden="true">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" width="24" height="24">
@@ -715,33 +761,44 @@
         <form id="contact-form" class="contact-form" autocomplete="on">
           <div class="form-grid">
             <div class="field">
-              <label class="field-label" for="contact-name">Name</label>
-              <input id="contact-name" name="name" type="text" class="field-input" placeholder="Your name" required minlength="2" />
+              <label class="field-label" for="contact-name" data-i18n-ar="الاسم">Name</label>
+              <input id="contact-name" name="name" type="text" class="field-input" placeholder="Your name" data-i18n-ar-placeholder="اسمك" required minlength="2" />
             </div>
 
             <div class="field">
-              <label class="field-label" for="contact-email">Email</label>
+              <label class="field-label" for="contact-email" data-i18n-ar="البريد الإلكتروني">Email</label>
               <input id="contact-email" name="email" type="email" class="field-input" placeholder="you@example.com" required />
             </div>
           </div>
 
           <div class="field">
-            <label class="field-label" for="contact-message">Message</label>
-            <textarea id="contact-message" name="message" class="field-input field-textarea" placeholder="Write your message..." required minlength="10"></textarea>
+            <label class="field-label" for="contact-message" data-i18n-ar="الرسالة">Message</label>
+            <textarea id="contact-message" name="message" class="field-input field-textarea" placeholder="Write your message..." data-i18n-ar-placeholder="اكتب رسالتك..." required minlength="10"></textarea>
           </div>
 
           <div class="form-actions">
-            <button class="primary-btn contact-send" type="submit" data-loading-text="Sending...">
-              <span class="btn-text">Send Message</span>
+            <button class="primary-btn contact-send" type="submit" data-loading-text="Sending..." data-loading-text-ar="جارٍ الإرسال...">
+              <span class="btn-text" data-i18n-ar="إرسال الرسالة">Send Message</span>
               <span class="btn-spinner" aria-hidden="true"></span>
             </button>
             <div id="contact-status" class="contact-status" role="status" aria-live="polite"></div>
           </div>
 
-          <p class="form-hint">By sending, you agree to be contacted back regarding your message.</p>
+          <p class="form-hint" data-i18n-ar="بإرسال هذه الرسالة، فإنك توافق على أن يتم التواصل معك بخصوص رسالتك.">By sending, you agree to be contacted back regarding your message.</p>
         </form>
       </div>
     </section>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p class="footer-copyright">
+          <span class="footer-year">© <span id="footer-year">2026</span></span>
+          <span class="footer-name">Salman Tawfiq <span class="footer-name-ar" lang="ar" dir="rtl">(سلمان توفيق)</span></span>
+          <span class="footer-sep" aria-hidden="true">—</span>
+          <span data-i18n-ar="جميع الحقوق محفوظة.">All rights reserved.</span>
+        </p>
+      </div>
+    </footer>
 
     <script src="script.js"></script>
   </body>

@@ -46,6 +46,17 @@ body {
 .logo {
   font-size: 28px;
   font-weight: 700;
+  background: linear-gradient(120deg, #ffe29a 0%, #ff7b00 45%, #d4a017 75%, #ffe29a 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--accent);
+  text-shadow: 0 0 22px rgba(255, 123, 0, 0.28);
+  transition: filter 0.25s ease;
+}
+
+.logo:hover {
+  filter: brightness(1.15);
 }
 
 .nav-links {
@@ -483,13 +494,13 @@ body {
   background: transparent;
 }
 
-.type-line[data-type="Building"] {
+.type-line[data-type="Engineering"] {
   animation-delay: 0s;
 }
-.type-line[data-type="Web Experiences"] {
+.type-line[data-type="Software Systems"] {
   animation-delay: 0.35s;
 }
-.type-line[data-type="That Perform"] {
+.type-line[data-type="That Deliver"] {
   animation-delay: 0.7s;
 }
 
@@ -519,8 +530,9 @@ svg {
   .hero {
     flex-direction: column;
     text-align: center;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    min-height: auto;
     padding-top: 110px;
     padding-bottom: 80px;
   }
@@ -561,6 +573,7 @@ svg {
   }
   .glow1,
   .glow2 {
+    position: absolute;
     filter: blur(90px);
     opacity: 0.75;
   }
@@ -601,6 +614,15 @@ svg {
   }
   .hero-text h1 {
     font-size: 48px;
+  }
+  /* Long translated headline chunks can exceed the column width on
+     narrow screens. The typing clip-path animation only works correctly
+     on a single line (it clips/hides wrapped text in Chromium), so on
+     narrow viewports drop the animation and let lines wrap safely. */
+  .hero-text h1 .type-line {
+    white-space: normal;
+    clip-path: none;
+    animation: none;
   }
   .hero-visual {
     overflow: hidden;
@@ -1809,5 +1831,174 @@ h2 {
     flex-direction: column;
     align-items: stretch;
   }
+}
+
+/* ---------------------------------------------------------------
+   Footer
+   --------------------------------------------------------------- */
+
+.site-footer {
+  border-top: 1px solid var(--stroke);
+  padding: 26px 10%;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-copyright {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 13.5px;
+}
+
+.footer-name {
+  color: #fff;
+  font-weight: 600;
+}
+
+.footer-name-ar {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.footer-sep {
+  opacity: 0.35;
+}
+
+@media (max-width: 420px) {
+  .site-footer {
+    padding: 22px 6%;
+  }
+  .footer-copyright {
+    font-size: 12.5px;
+    gap: 6px;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Language toggle (navbar)
+   --------------------------------------------------------------- */
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.lang-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  font-weight: 600;
+  font-size: 13.5px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease, color 0.25s ease;
+}
+
+.lang-toggle-icon {
+  display: flex;
+  width: 15px;
+  height: 15px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.lang-toggle-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.lang-toggle-btn:hover {
+  border-color: rgba(255, 123, 0, 0.5);
+  background: rgba(255, 123, 0, 0.12);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.lang-toggle-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+  .lang-toggle-btn {
+    padding: 8px 13px;
+    font-size: 12px;
+    gap: 5px;
+  }
+
+  .lang-toggle-icon {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Arabic / RTL support
+   --------------------------------------------------------------- */
+
+html[lang="ar"] body {
+  font-family: "Tajawal", "Poppins", sans-serif;
+}
+
+[dir="rtl"] .badge,
+[dir="rtl"] h2,
+[dir="rtl"] .skills-group-title,
+[dir="rtl"] .progress-label {
+  letter-spacing: normal;
+}
+
+/* Typing reveal sweeps right-to-left to match Arabic reading direction */
+@keyframes typeRevealRTL {
+  from {
+    clip-path: inset(0 0 0 100%);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+[dir="rtl"] .type-line {
+  animation-name: typeRevealRTL;
+}
+
+/* The timeline connector sits under the dots column, which renders on the
+   right in RTL since the dot is the first flex child of .timeline-item */
+[dir="rtl"] .timeline::before {
+  left: auto;
+  right: 18px;
+}
+
+/* The certificate thumbnail becomes the right-hand column in RTL */
+[dir="rtl"] .cert-thumb {
+  border-right: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gallery arrows swap sides to match reading direction */
+[dir="rtl"] .gallery-btn.prev {
+  left: auto;
+  right: 10px;
+}
+[dir="rtl"] .gallery-btn.next {
+  right: auto;
+  left: 10px;
+}
+
+/* The spinner sits before the button label in RTL, so its gap flips */
+[dir="rtl"] .btn-spinner {
+  margin-left: 0;
+  margin-right: 10px;
 }
 

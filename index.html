@@ -4,22 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Salman Tawfiq - Software Engineer</title>
+    <meta
+      name="description"
+      content="Salman Tawfiq is a software engineer specializing in ASP.NET Core full-stack development — building modern, scalable, and secure web applications from database to user interface."
+    />
+    <link rel="canonical" href="https://salmantawfiq.com/" />
 
-    <!-- Favicon / Icons -->
-    <link rel="icon" type="image/png" href="assets/logo1.jpg.png" sizes="32x32" />
-    <link rel="apple-touch-icon" href="assets/logo1.jpg.png" sizes="180x180" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://salmantawfiq.com/" />
+    <meta property="og:title" content="Salman Tawfiq - Software Engineer" />
+    <meta
+      property="og:description"
+      content="Software engineer specializing in ASP.NET Core full-stack development — building modern, scalable, and secure web applications from database to user interface."
+    />
+    <meta property="og:image" content="https://salmantawfiq.com/assets/profile-opt.jpg" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Salman Tawfiq - Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="Software engineer specializing in ASP.NET Core full-stack development — building modern, scalable, and secure web applications from database to user interface."
+    />
+    <meta name="twitter:image" content="https://salmantawfiq.com/assets/profile-opt.jpg" />
+
+    <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="assets/favicon-180.png" sizes="180x180" />
 
     <link rel="stylesheet" href="style.css" />
 
-    <!-- Custom styles to fix link underline on project card -->
     <style>
       .project-card-link {
         text-decoration: none;
         color: inherit;
       }
     </style>
-    <!-- Google Font -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -27,7 +49,6 @@
   </head>
 
   <body>
-    <!--      Navbar        -->
     <nav class="navbar">
       <div class="logo" role="button" tabindex="0" aria-label="Go to top">
         Salman Tawfiq
@@ -36,28 +57,82 @@
       <ul class="nav-links">
         <li><a href="#projects">Projects</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#experience">My Journey</a></li>
         <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#experience">My Journey</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <span class="nav-underline" aria-hidden="true"></span>
 
       <button class="nav-btn" type="button" data-scroll="#contact">
         Contact Me
       </button>
     </nav>
 
-    <!-- Hero Section -->
+    <nav class="mobile-dock" aria-label="Section navigation">
+      <a href="#projects" class="dock-item" data-dock="projects">
+        <span class="dock-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+            <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+            <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+            <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+          </svg>
+        </span>
+        <span class="dock-label">Projects</span>
+      </a>
+
+      <a href="#about" class="dock-item" data-dock="about">
+        <span class="dock-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4"></circle>
+            <path d="M4 20c0-4 4-6 8-6s8 2 8 6"></path>
+          </svg>
+        </span>
+        <span class="dock-label">About</span>
+      </a>
+
+      <a href="#certifications" class="dock-item" data-dock="certifications">
+        <span class="dock-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="5"></circle>
+            <path d="M9 12.5 7 21 12 18.5 17 21 15 12.5"></path>
+          </svg>
+        </span>
+        <span class="dock-label">Certs</span>
+      </a>
+
+      <a href="#experience" class="dock-item" data-dock="experience">
+        <span class="dock-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 17 9 11 13 15 21 6"></path>
+            <path d="M21 6h-5"></path>
+            <path d="M21 6v5"></path>
+          </svg>
+        </span>
+        <span class="dock-label">Journey</span>
+      </a>
+
+      <a href="#contact" class="dock-item" data-dock="contact">
+        <span class="dock-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+            <path d="M3 7 12 13 21 7"></path>
+          </svg>
+        </span>
+        <span class="dock-label">Contact</span>
+      </a>
+
+      <span class="dock-indicator" aria-hidden="true"></span>
+    </nav>
+
     <section class="hero" id="home">
-      <!-- Scroll progress -->
       <div class="scroll-progress" aria-hidden="true">
         <div class="scroll-progress-bar"></div>
       </div>
 
-      <!-- Interactive background layers -->
       <div class="bg-grid" aria-hidden="true"></div>
       <div class="bg-scan" aria-hidden="true"></div>
 
-      <!-- Glow -->
       <div class="glow glow1"></div>
       <div class="glow glow2"></div>
 
@@ -68,18 +143,14 @@
           <span class="type-line" data-type="Building">Building</span>
           <span class="accent modern-label">Modern</span>
           <br />
-
-          <span class="type-line" data-type="Web Experiences"
-            >Web Experiences</span
-          >
+          <span class="type-line" data-type="Web Experiences">Web Experiences</span>
           <br />
           <span class="type-line" data-type="That Perform">That Perform</span>
         </h1>
 
         <p>
-          I design and develop responsive, scalable, and secure web solutions
-          from database to user interface, turning complex problems into
-          seamless digital experiences.
+          I design and develop responsive, scalable, and secure web solutions from database to user
+          interface, turning complex problems into seamless digital experiences.
         </p>
 
         <div class="buttons">
@@ -88,7 +159,6 @@
         </div>
       </div>
 
-      <!-- Right Side Circle -->
       <div class="hero-visual" aria-hidden="true">
         <div class="circle">
           <div class="circle-inner"></div>
@@ -98,9 +168,12 @@
         <div class="profile-wrap" aria-hidden="true">
           <img
             class="profile-img"
-            src="assets/profile.jpg.jpeg"
+            src="assets/profile-opt.jpg"
             alt="Salman Tawfik"
+            width="700"
+            height="700"
             loading="eager"
+            fetchpriority="high"
           />
           <div class="profile-glow"></div>
         </div>
@@ -112,42 +185,108 @@
     <section id="projects" class="projects">
       <h2>My Projects</h2>
 
-      <!-- Project 1: To Do List -->
-      
-
-      <!-- Project 2: Simple Store (no links, no images provided) -->
-      <a href="https://salmantawfeeq.github.io/halwani-elmsry/" target="_blank" rel="noopener" class="project-card-link">
-
+      <a href="https://salmantawfeeq.github.io/Nashvell/" target="_blank" rel="noopener" class="project-card-link">
         <div class="project-card">
-        <div class="project-gallery" data-gallery onclick="event.stopPropagation(); event.preventDefault();" onmousedown="event.stopPropagation(); event.preventDefault();" onpointerdown="event.stopPropagation(); event.preventDefault();">
-            <button class="gallery-btn prev" type="button" aria-label="Previous image" onclick="event.stopPropagation(); event.preventDefault();">
-
+          <div class="project-gallery" data-gallery>
+            <button class="gallery-btn prev" type="button" aria-label="Previous image">
               ‹
             </button>
-
-
 
             <div class="gallery-viewport" aria-label="Project images">
               <div class="gallery-track" role="list">
                 <img
                   class="project-img"
-                  src="assets/المصري.png"
+                  src="assets/nashvell/1-opt.jpg"
+                  alt="Nashvell preview 1"
+                  loading="lazy"
+                  role="listitem"
+                />
+                <img
+                  class="project-img"
+                  src="assets/nashvell/2-opt.jpg"
+                  alt="Nashvell preview 2"
+                  loading="lazy"
+                  role="listitem"
+                />
+                <img
+                  class="project-img"
+                  src="assets/nashvell/3-opt.jpg"
+                  alt="Nashvell preview 3"
+                  loading="lazy"
+                  role="listitem"
+                />
+              </div>
+            </div>
+
+            <button class="gallery-btn next" type="button" aria-label="Next image">
+              ›
+            </button>
+
+            <div class="gallery-dots" aria-hidden="true"></div>
+          </div>
+
+          <h3>Nashvell International Trading Co.</h3>
+
+          <p>
+            Built a full bilingual (Arabic/English) corporate website for Nashvell International Trading Co.,
+            a global trade, logistics, and investment company. The platform includes dedicated pages for products,
+            technology, projects, investment, logistics, and media, backed by Supabase for authentication and data
+            management, with a secure staff dashboard for full content control across the site.
+          </p>
+
+          <div class="project-actions">
+            <button
+              type="button"
+              class="live-demo-btn"
+              aria-label="Live Demo"
+              data-open-url="https://salmantawfeeq.github.io/Nashvell/"
+            >
+              Live Demo
+            </button>
+          </div>
+
+          <div class="project-tags">
+            <span class="project-tag">Bilingual Arabic/English</span>
+            <span class="project-tag">Corporate Website</span>
+            <span class="project-tag">Supabase Backend</span>
+            <span class="project-tag">Row-Level Security</span>
+            <span class="project-tag">Staff Authentication</span>
+            <span class="project-tag">Admin Dashboard</span>
+            <span class="project-tag">Product & Category Management</span>
+            <span class="project-tag">Multi-page Architecture</span>
+            <span class="project-tag">EmailJS Contact Integration</span>
+            <span class="project-tag">Responsive Design</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://salmantawfeeq.github.io/halwani-elmsry/" target="_blank" rel="noopener" class="project-card-link">
+        <div class="project-card">
+          <div class="project-gallery" data-gallery>
+            <button class="gallery-btn prev" type="button" aria-label="Previous image">
+              ‹
+            </button>
+
+            <div class="gallery-viewport" aria-label="Project images">
+              <div class="gallery-track" role="list">
+                <img
+                  class="project-img"
+                  src="assets/المصري-opt.jpg"
                   alt="Halwani-Elmsry preview 1"
                   loading="lazy"
                   role="listitem"
                 />
                 <img
                   class="project-img"
-                  src="assets/admin.elmsy.png"
+                  src="assets/admin.elmsy-opt.jpg"
                   alt="Halwani-Elmsry preview 2"
                   loading="lazy"
                   role="listitem"
                 />
-                
               </div>
             </div>
 
-            <button class="gallery-btn next" type="button" aria-label="Next image" onclick="event.stopPropagation(); event.preventDefault();">
+            <button class="gallery-btn next" type="button" aria-label="Next image">
               ›
             </button>
 
@@ -157,15 +296,19 @@
           <h3>Halwani-Elmsry</h3>
 
           <p>
-             Developed a full-stack platform for 'Halwani-Elmsry', featuring a robust Admin Dashboard that provides comprehensive
-            control over the entire system. The dashboard enables seamless management of products, order processing, and user data oversight. Leveraging the power of ASP.NET for backend operations and the scalability of Firebase for real-time database management, the project ensures high performance, secure data handling, and an intuitive administrative experience.
+            Developed a full-stack platform for 'Halwani-Elmsry', featuring a robust Admin Dashboard that
+            provides comprehensive control over the entire system. The dashboard enables seamless management
+            of products, order processing, and user data oversight. Leveraging the power of ASP.NET for backend
+            operations and the scalability of Firebase for real-time database management, the project ensures high
+            performance, secure data handling, and an intuitive administrative experience.
           </p>
+
           <div class="project-actions">
             <button
               type="button"
               class="live-demo-btn"
               aria-label="Live Demo"
-              onclick="window.open('https://salmantawfeeq.github.io/halwani-elmsry/','_blank')"
+              data-open-url="https://salmantawfeeq.github.io/halwani-elmsry/"
             >
               Live Demo
             </button>
@@ -173,7 +316,6 @@
 
           <div class="project-tags">
             <span class="project-tag">Customer Authentication</span>
-
             <span class="project-tag">Product Catalog</span>
             <span class="project-tag">Product Categories</span>
             <span class="project-tag">Product Search</span>
@@ -189,98 +331,97 @@
             <span class="project-tag">Order Management</span>
             <span class="project-tag">Promotional Popup Banner</span>
           </div>
-
         </div>
       </a>
 
-      <!-- Project 3: Portfolio / Landing (no links, no images provided) -->
-
       <div class="project-card">
         <div class="project-gallery" data-gallery>
-          <button class="gallery-btn prev" type="button" aria-label="Previous image" onclick="event.stopPropagation(); event.preventDefault();">‹</button>
+          <button class="gallery-btn prev" type="button" aria-label="Previous image">
+            ‹
+          </button>
 
           <div class="gallery-viewport" aria-label="Project images">
             <div class="gallery-track" role="list">
               <img
                 class="project-img"
-                src="assets/taskflow.png"
+                src="assets/taskflow/taskflow-opt.jpg"
                 alt="TaskFlow preview 1"
                 loading="lazy"
                 role="listitem"
               />
               <img
                 class="project-img"
-                src="assets/task1.png"
+                src="assets/taskflow/task1-opt.jpg"
                 alt="TaskFlow preview 2"
                 loading="lazy"
                 role="listitem"
               />
               <img
                 class="project-img"
-                src="assets/task2.png"
+                src="assets/taskflow/task2-opt.jpg"
                 alt="TaskFlow preview 3"
                 loading="lazy"
                 role="listitem"
               />
               <img
                 class="project-img"
-                src="assets/task3.png"
+                src="assets/taskflow/task3-opt.jpg"
                 alt="TaskFlow preview 3"
                 loading="lazy"
                 role="listitem"
               />
               <img
                 class="project-img"
-                src="assets/task4.png"
+                src="assets/taskflow/task4-opt.jpg"
                 alt="TaskFlow preview 3"
                 loading="lazy"
                 role="listitem"
               />
               <img
                 class="project-img"
-                src="assets/task5.png"
+                src="assets/taskflow/task5-opt.jpg"
                 alt="TaskFlow preview 3"
                 loading="lazy"
                 role="listitem"
               />
               <img
                 class="project-img"
-                src="assets/task6.png"
+                src="assets/taskflow/task6-opt.jpg"
                 alt="TaskFlow preview 3"
                 loading="lazy"
                 role="listitem"
               />
               <img
                 class="project-img"
-                src="assets/task7.png"
+                src="assets/taskflow/task7-opt.jpg"
                 alt="TaskFlow preview 3"
                 loading="lazy"
                 role="listitem"
               />
               <img
                 class="project-img"
-                src="assets/task8.png"
+                src="assets/taskflow/task8-opt.jpg"
                 alt="TaskFlow preview 3"
                 loading="lazy"
                 role="listitem"
               />
               <img
                 class="project-img"
-                src="assets/task9.png"
+                src="assets/taskflow/task9-opt.jpg"
                 alt="TaskFlow preview 3"
                 loading="lazy"
                 role="listitem"
               />
               <img
                 class="project-img"
-                src="assets/task10.png"
+                src="assets/taskflow/task10-opt.jpg"
                 alt="TaskFlow preview 3"
                 loading="lazy"
                 role="listitem"
               />
               <img
                 class="project-img"
-                src="assets/task11.png"
+                src="assets/taskflow/task11-opt.jpg"
                 alt="TaskFlow preview 3"
                 loading="lazy"
                 role="listitem"
@@ -288,7 +429,9 @@
             </div>
           </div>
 
-          <button class="gallery-btn next" type="button" aria-label="Next image">›</button>
+          <button class="gallery-btn next" type="button" aria-label="Next image">
+            ›
+          </button>
 
           <div class="gallery-dots" aria-hidden="true"></div>
         </div>
@@ -296,15 +439,13 @@
         <h3>TaskFlow - Project Management System</h3>
 
         <p>
-        TaskFlow is a full-stack project management system designed to help teams organize projects,
-         assign tasks, manage users, monitor progress, and generate reports through an intuitive dashboard.
-
-        The application supports role-based access, project collaboration, task tracking, team management,
-         analytics, and an administration panel.
+          TaskFlow is a full-stack project management system designed to help teams organize projects, assign tasks,
+          manage users, monitor progress, and generate reports through an intuitive dashboard.
+          The application supports role-based access, project collaboration, task tracking, team management, analytics,
+          and an administration panel.
         </p>
 
         <div class="project-tags">
-
           <span class="project-tag">Secure Authentication & Authorization</span>
           <span class="project-tag">Role-Based Access Control (Admin / Manager / Employee)</span>
           <span class="project-tag">Dashboard with real-time project statistics</span>
@@ -320,12 +461,10 @@
           <span class="project-tag">Email Notification Logs</span>
           <span class="project-tag">Responsive Dark UI</span>
         </div>
-
       </div>
     </section>
 
     <section id="about" class="about">
-      <!-- About background (progressive reveal) -->
       <div class="about-bg" aria-hidden="true"></div>
       <div class="about-bg-overlay" aria-hidden="true"></div>
 
@@ -335,42 +474,66 @@
         <div class="about-card">
           <h3 class="card-title">Who I'm</h3>
           <p>
-            I'm Salman Tawfiq , a software engineer focused on building modern,
-            performance-driven user experiences , I enjoy turning designs into
-            clean, responsive interfaces.
+            I'm Salman Tawfiq, a software engineer focused on building modern, performance-driven user experiences.
+            I enjoy turning designs into clean, responsive interfaces that feel as good to use as they look.
           </p>
-          
+          <p>
+            My path started with a degree in Management Information Systems, moved through hands-on frontend
+            development, and is now centered on full-stack ASP.NET Core development — architecting APIs,
+            structuring databases, and shipping features end-to-end. Along the way, my IT & Information Systems
+            service sharpened my discipline and eye for reliability under pressure.
+          </p>
         </div>
 
         <div class="skills-card">
           <h3 class="card-title">Skills</h3>
-          <div class="skills">
-            <div class="skill">
-              <span class="dot"></span> Full Stack Development
+
+          <div class="skills-groups">
+            <div class="skills-group">
+              <h4 class="skills-group-title">Languages</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">C#</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">HTML5</span>
+                <span class="skill-tag">CSS3</span>
+              </div>
             </div>
-            <div class="skill"><span class="dot"></span> FrontEnd</div>
-            <div class="skill"><span class="dot"></span> BackEnd</div>
-            <div class="skill"><span class="dot"></span> ASP.NET Core</div>
-            <div class="skill"><span class="dot"></span> .NET</div>
-            <div class="skill"><span class="dot"></span> REST APIs</div>
-            <div class="skill"><span class="dot"></span> SQL / Databases</div>
-            <div class="skill"><span class="dot"></span> Firebase</div>
-            <div class="skill">
-              <span class="dot"></span> Authentication & Authorization
+
+            <div class="skills-group">
+              <h4 class="skills-group-title">Backend &amp; Databases</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">ASP.NET Core</span>
+                <span class="skill-tag">.NET</span>
+                <span class="skill-tag">RESTful APIs</span>
+                <span class="skill-tag">SQL Server</span>
+                <span class="skill-tag">PostgreSQL</span>
+                <span class="skill-tag">Firebase</span>
+                <span class="skill-tag">Supabase</span>
+                <span class="skill-tag">Authentication &amp; Authorization</span>
+              </div>
             </div>
-            <div class="skill"><span class="dot"></span> Responsive Design</div>
-            <div class="skill">
-              <span class="dot"></span> UI/UX Implementation
+
+            <div class="skills-group">
+              <h4 class="skills-group-title">Frontend &amp; UI/UX</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">Responsive Design</span>
+                <span class="skill-tag">UI/UX Implementation</span>
+                <span class="skill-tag">Bootstrap</span>
+                <span class="skill-tag">Animation &amp; Micro-interactions</span>
+                <span class="skill-tag">Figma</span>
+              </div>
             </div>
-            <div class="skill">
-              <span class="dot"></span> Animation & Micro-interactions
+
+            <div class="skills-group">
+              <h4 class="skills-group-title">Tools &amp; Practices</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">Git &amp; GitHub</span>
+                <span class="skill-tag">Postman</span>
+                <span class="skill-tag">Clean Code</span>
+                <span class="skill-tag">Performance Mindset</span>
+              </div>
             </div>
-            <div class="skill">
-              <span class="dot"></span> Performance Mindset
-            </div>
-            <div class="skill"><span class="dot"></span> Clean code</div>
-            <div class="skill"><span class="dot"></span>Figma</div>
-            <div class="skill"><span class="dot"></span> Bootstrap</div>
           </div>
         </div>
       </div>
@@ -385,19 +548,15 @@
             <span class="progress-label">ASP.NET Full Stack Development</span>
             <span class="progress-percent">80%</span>
           </div>
-          <div class="progress-track" aria-hidden="true">
-            <div class="progress-fill"></div>
-          </div>
+          <div class="progress-track" aria-hidden="true"><div class="progress-fill"></div></div>
         </div>
 
         <div class="progress-row" data-progress="80">
           <div class="progress-head">
-            <span class="progress-label">Backend Development </span>
+            <span class="progress-label">Backend Development</span>
             <span class="progress-percent">80%</span>
           </div>
-          <div class="progress-track" aria-hidden="true">
-            <div class="progress-fill"></div>
-          </div>
+          <div class="progress-track" aria-hidden="true"><div class="progress-fill"></div></div>
         </div>
 
         <div class="progress-row" data-progress="99">
@@ -405,9 +564,7 @@
             <span class="progress-label">Frontend Development</span>
             <span class="progress-percent">99%</span>
           </div>
-          <div class="progress-track" aria-hidden="true">
-            <div class="progress-fill"></div>
-          </div>
+          <div class="progress-track" aria-hidden="true"><div class="progress-fill"></div></div>
         </div>
       </div>
     </section>
@@ -418,59 +575,31 @@
       <div class="cert-grid">
         <article class="cert-card">
           <div class="cert-thumb" aria-hidden="true">
-            <img
-              src="assets/انجليزي.png"
-              alt="English Certificate Preview"
-              loading="lazy"
-            />
+            <img src="assets/انجليزي-opt.jpg" alt="English Certificate Preview" loading="lazy" width="110" height="140" />
           </div>
 
           <div class="cert-body">
             <h3 class="cert-title">English Certificate</h3>
-            <p class="cert-meta">Issued By • Fluentcore learning</p>
+            <p class="cert-meta">Issued By • FluentCore Learning</p>
             <p class="cert-desc">Open the certificate PDF in a new tab.</p>
-
             <div class="cert-actions">
-              <a
-                class="cert-link"
-                href="assets/Diploma Salman Tawfik.pdf"
-                target="_blank"
-                rel="noopener"
-                >View PDF</a
-              >
+<a class="cert-link" href="assets/Diploma%20Salman%20Tawfik.pdf" target="_blank" rel="noopener">View PDF</a>
             </div>
           </div>
         </article>
 
         <article class="cert-card">
           <div class="cert-thumb" aria-hidden="true">
-            <img
-              src="assets/برمجة.png"
-              alt="ASP.NET full stack Certificate Preview"
-              loading="lazy"
-            />
+            <img src="assets/برمجة-opt.jpg" alt="ASP.NET Full Stack Certificate Preview" loading="lazy" width="110" height="140" />
           </div>
 
           <div class="cert-body">
-            <h3 class="cert-title">ASP.NET full stack Certificate</h3>
-            <p class="cert-meta">Issued By • Microsoft partner</p>
+            <h3 class="cert-title">ASP.NET Full Stack Certificate</h3>
+            <p class="cert-meta">Issued By • Microsoft Partner</p>
             <p class="cert-desc">Open the certificate PDF in a new tab.</p>
-
             <div class="cert-actions">
-              <a
-                class="cert-link"
-                href="assets/SALMAN TAWFIQ MUSTAFA MUSTAFA.pdf"
-                target="_blank"
-                rel="noopener"
-                >View PDF</a
-              >
+<a class="cert-link" href="assets/SALMAN%20TAWFIQ%20MUSTAFA%20MUSTAFA.pdf" target="_blank" rel="noopener">View PDF</a>
             </div>
-          </div>
-        </article>
-
-        
-
-            
           </div>
         </article>
       </div>
@@ -478,59 +607,57 @@
 
     <section id="experience" class="experience">
       <h2>My Journey</h2>
-    <!-- 1 -->
+
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <h3>.NET Full stack Developer</h3>
+            <h3>.NET Full Stack Developer</h3>
             <p class="timeline-date">2026 - Present</p>
             <p>
-              I architect and develop scalable, high-performance web applications using ASP.NET Core and modern frontend frameworks.
-               I am experienced in implementing Clean Architecture, designing secure RESTful APIs, and optimizing database queries
-                for maximum efficiency. My main focus is on delivering clean, maintainable code and seamless user experiences.
+              I architect and develop scalable, high-performance web applications using ASP.NET Core and modern frontend
+              frameworks. I am experienced in implementing Clean Architecture, designing secure RESTful APIs, and optimizing
+              database queries for maximum efficiency. My main focus is on delivering clean, maintainable code and seamless
+              user experiences.
             </p>
           </div>
         </div>
-      <!-- 2 -->
+
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <h3>Frontend Web Development</h3>
             <p class="timeline-date">2025 - 2026</p>
             <p>
-              I mastered the core fundamentals of web development, focusing on building responsive, semantic,
-               and user-friendly interfaces. I gained hands-on experience in structuring web pages with HTML5,
-                styling with advanced CSS3 layouts, and implementing dynamic interactivity using modern JavaScript.
+              I mastered the core fundamentals of web development, focusing on building responsive, semantic, and user-friendly
+              interfaces. I gained hands-on experience in structuring web pages with HTML5, styling with advanced CSS3 layouts,
+              and implementing dynamic interactivity using modern JavaScript.
             </p>
           </div>
         </div>
-      <!-- 3 -->
-        <div class="timeline">
+
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <h3>Military Service - IT & Information Systems Specialist</h3>
             <p class="timeline-date">2024 - 2025</p>
             <p>
-              I fulfilled my mandatory military service within the Information Systems Branch. During this period,
-               I gained practical experience in managing local systems, handling technical support, and ensuring data integrity.
-                I developed strong professional discipline, teamwork, and problem-solving skills under high-responsibility environments.
+              I fulfilled my mandatory military service within the Information Systems Branch. During this period, I gained practical
+              experience in managing local systems, handling technical support, and ensuring data integrity. I developed strong professional
+              discipline, teamwork, and problem-solving skills under high-responsibility environments.
             </p>
           </div>
         </div>
 
-        <!-- 4 -->
-         <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <h3>Management Information Systems</h3>
             <p class="timeline-date">2020 - 2024</p>
             <p>
-              I acquired a solid foundation in bridging the gap between business needs and technology.
-               I specialized in Software Engineering, advanced database management, and system logic,
-                where I developed multiple academic full-stack projects and honed my analytical skills.
+              I acquired a solid foundation in bridging the gap between business needs and technology. I specialized in Software Engineering,
+              advanced database management, and system logic, where I developed multiple academic full-stack projects and honed my analytical
+              skills.
             </p>
           </div>
         </div>
@@ -539,20 +666,16 @@
 
     <section id="contact" class="contact">
       <div class="contact-box" aria-label="Contact box">
-        <!-- EmailJS SDK (used by contact form) -->
         <script
           type="text/javascript"
           src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+          defer
         ></script>
 
         <h2 class="contact-title">Contact Me</h2>
-
-        <p class="contact-desc">
-          Send me a message and I’ll get back to you as soon as possible.
-        </p>
+        <p class="contact-desc">Send me a message and I’ll get back to you as soon as possible.</p>
 
         <div class="contact-social" aria-label="Contact methods">
-          <!-- LinkedIn -->
           <a
             class="contact-social-link"
             href="https://www.linkedin.com/in/salman-tawfiq-8188b3192?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
@@ -564,7 +687,6 @@
             <span class="social-icon" aria-hidden="true">in</span>
           </a>
 
-          <!-- Phone -->
           <a
             class="contact-social-link"
             href="tel:+966509139545"
@@ -574,7 +696,6 @@
             <span class="social-icon" aria-hidden="true">☎</span>
           </a>
 
-          <!-- WhatsApp -->
           <a
             class="contact-social-link"
             href="https://wa.me/+966509139545"
@@ -585,73 +706,39 @@
           >
             <span class="social-icon" aria-hidden="true">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" width="24" height="24">
-                <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 .2c57.1 0 109.7 21.8 149.4 61.5 39.8 39.8 61.5 92.3 61.5 149.4 0 119.3-96.9 216.2-216.2 216.2a212.2 212.2 0 0 1 -102.8-27.2l-7.6-4.5-76.3 20 20.5-74.4-4.9-7.9c-18.5-29.8-28.2-63.6-28.2-98.8 0-119.3 96.9-216.2 216.2-216.2zm105.9 161.2c-6.6-3.3-39.4-19.4-45.6-21.6-6.2-2.2-10.7-3.3-15.2 3.3-4.5 6.6-17.3 21.6-21.2 26-3.9 4.5-7.8 5-14.4 1.7-6.6-3.3-27.9-10.3-53.2-32.9-19.7-17.6-33-39.4-36.9-46-3.9-6.6-.4-10.2 2.9-13.5 3-3 6.6-7.8 9.9-10.4 3.3-2.6 4.5-4.5 6.6-7.8 2.2-3.3 1.1-6.2-.5-9.4s-15.2-36.5-20.8-50.2c-5.6-13.7-11.3-11.9-15.2-12.2-3.6-.2-7.8-.2-12.2-.2-4.5 0-11.8 1.7-18 8.1-6.2 6.6-23.6 23-23.6 56.1 0 33.1 24.1 65 27.4 69.5 3.3 4.5 47.1 71.2 115.2 101.2 16.5 7.5 29.5 11.9 39.8 15.2 10.2 3.3 19.4 2.8 26.7 1.7 7.8-1.1 24.4-10 27.9-19.4 3.6-9.4 3.6-17.3 2.5-19.4-1.1-2.2-4.5-3.3-9.4-5.5z"/>
+                <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 .2c57.1 0 109.7 21.8 149.4 61.5 39.8 39.8 61.5 92.3 61.5 149.4 0 119.3-96.9 216.2-216.2 216.2a212.2 212.2 0 0 1 -102.8-27.2l-7.6-4.5-76.3 20 20.5-74.4-4.9-7.9c-18.5-29.8-28.2-63.6-28.2-98.8 0-119.3 96.9-216.2 216.2-216.2zm105.9 161.2c-6.6-3.3-39.4-19.4-45.6-21.6-6.2-2.2-10.7-3.3-15.2 3.3-4.5 6.6-17.3 21.6-21.2 26-3.9 4.5-7.8 5-14.4 1.7-6.6-3.3-27.9-10.3-53.2-32.9-19.7-17.6-33-39.4-36.9-46-3.9-6.6-.4-10.2 2.9-13.5 3-3 6.6-7.8 9.9-10.4 3.3-2.6 4.5-4.5 6.6-7.8 2.2-3.3 1.1-6.2-.5-9.4s-15.2-36.5-20.8-50.2c-5.6-13.7-11.3-11.9-15.2-12.2-3.6-.2-7.8-.2-12.2-.2-4.5 0-11.8 1.7-18 8.1-6.2 6.6-23.6 23-23.6 56.1 0 33.1 24.1 65 27.4 69.5 3.3 4.5 47.1 71.2 115.2 101.2 16.5 7.5 29.5 11.9 39.8 15.2 10.2 3.3 19.4 2.8 26.7 1.7 7.8-1.1 24.4-10 27.9-19.4 3.6-9.4 3.6-17.3 2.5-19.4-1.1-2.2-4.5-3.3-9.4-5.5z" />
               </svg>
             </span>
           </a>
         </div>
 
-        <!-- Interactive Contact Form -->
         <form id="contact-form" class="contact-form" autocomplete="on">
           <div class="form-grid">
             <div class="field">
               <label class="field-label" for="contact-name">Name</label>
-              <input
-                id="contact-name"
-                name="name"
-                type="text"
-                class="field-input"
-                placeholder="Your name"
-                required
-                minlength="2"
-              />
+              <input id="contact-name" name="name" type="text" class="field-input" placeholder="Your name" required minlength="2" />
             </div>
 
             <div class="field">
               <label class="field-label" for="contact-email">Email</label>
-              <input
-                id="contact-email"
-                name="email"
-                type="email"
-                class="field-input"
-                placeholder="you@example.com"
-                required
-              />
+              <input id="contact-email" name="email" type="email" class="field-input" placeholder="you@example.com" required />
             </div>
           </div>
 
           <div class="field">
             <label class="field-label" for="contact-message">Message</label>
-            <textarea
-              id="contact-message"
-              name="message"
-              class="field-input field-textarea"
-              placeholder="Write your message..."
-              required
-              minlength="10"
-            ></textarea>
+            <textarea id="contact-message" name="message" class="field-input field-textarea" placeholder="Write your message..." required minlength="10"></textarea>
           </div>
 
           <div class="form-actions">
-            <button
-              class="primary-btn contact-send"
-              type="submit"
-              data-loading-text="Sending..."
-            >
+            <button class="primary-btn contact-send" type="submit" data-loading-text="Sending...">
               <span class="btn-text">Send Message</span>
               <span class="btn-spinner" aria-hidden="true"></span>
             </button>
-            <div
-              id="contact-status"
-              class="contact-status"
-              role="status"
-              aria-live="polite"
-            ></div>
+            <div id="contact-status" class="contact-status" role="status" aria-live="polite"></div>
           </div>
 
-          <p class="form-hint">
-            By sending, you agree to be contacted back regarding your message.
-          </p>
+          <p class="form-hint">By sending, you agree to be contacted back regarding your message.</p>
         </form>
       </div>
     </section>
@@ -659,3 +746,4 @@
     <script src="script.js"></script>
   </body>
 </html>
+

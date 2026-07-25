@@ -1,11 +1,10 @@
-// script.js
-
 (function () {
-  const $ = (sel) => document.querySelector(sel);
-  const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
-  // Smooth scroll for in-page links
+
   function smoothScrollTo(selector) {
+
     const el = document.querySelector(selector);
     if (!el) return;
     el.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -40,7 +39,7 @@
   }
 
   // Navbar links +  button
-  // Smooth scroll for in-page links (mobile-friendly)
+
   // Use pointerup + click fallback to avoid touch quirks on some mobile browsers.
   function handleInPageNav(targetEl, e) {
     if (!targetEl) return;
@@ -84,14 +83,61 @@
   // Active section highlight (scroll spy)
   const nav = document.querySelector(".navbar");
   const navLinks = $$('.nav-links a[href^="#"]');
+  const navUnderline = $(".nav-underline");
+  const dock = $(".mobile-dock");
+  const dockItems = $$(".dock-item", dock || document);
+  const dockIndicator = $(".dock-indicator");
+
+  function moveNavUnderline(link) {
+    if (!navUnderline || !nav) return;
+    if (!link) {
+      navUnderline.style.opacity = "0";
+      return;
+    }
+    const linkRect = link.getBoundingClientRect();
+    const navRect = nav.getBoundingClientRect();
+    navUnderline.style.opacity = "1";
+    navUnderline.style.width = `${linkRect.width}px`;
+    navUnderline.style.transform = `translateX(${linkRect.left - navRect.left}px)`;
+  }
+
+  function moveDockIndicator(item) {
+    if (!dockIndicator || !dock) return;
+    if (!item || getComputedStyle(dock).display === "none") {
+      dockIndicator.style.opacity = "0";
+      return;
+    }
+    const itemRect = item.getBoundingClientRect();
+    const dockRect = dock.getBoundingClientRect();
+    dockIndicator.style.opacity = "1";
+    dockIndicator.style.width = `${itemRect.width}px`;
+    dockIndicator.style.transform = `translateX(${itemRect.left - dockRect.left}px)`;
+  }
 
   function setActiveSection(id) {
+    let activeLink = null;
     navLinks.forEach((link) => {
       const href = link.getAttribute("href");
       const targetId = href ? href.slice(1) : null;
-      if (targetId && targetId === id) link.classList.add("is-active");
-      else link.classList.remove("is-active");
+      if (targetId && targetId === id) {
+        link.classList.add("is-active");
+        activeLink = link;
+      } else {
+        link.classList.remove("is-active");
+      }
     });
+    moveNavUnderline(activeLink);
+
+    let activeDockItem = null;
+    dockItems.forEach((item) => {
+      if (item.dataset.dock === id) {
+        item.classList.add("is-active");
+        activeDockItem = item;
+      } else {
+        item.classList.remove("is-active");
+      }
+    });
+    moveDockIndicator(activeDockItem);
 
     const allTypeLines = $$(".type-line");
     if (allTypeLines.length) {
@@ -123,7 +169,7 @@
     toEmail: "salmantawfeeq10@gmail.com",
   };
 
-  function setStatus(statusEl, type, msg) {
+function setStatus(statusEl, type, msg) {
     if (!statusEl) return;
     statusEl.classList.remove("is-success", "is-error", "is-visible");
     if (type)
@@ -251,22 +297,55 @@
     ".projects, .about, .experience, .contact, .certifications, .cert-card, .project-card, .about-card, .skills-card",
   );
 
+  // Scroll-spy: computed directly from live geometry on every scroll tick
+  // (rAF-throttled) rather than IntersectionObserver threshold-crossing
+  // events. This avoids relying on async crossing notifications reliably
+  // firing for the exact moment a section's ratio returns to zero — which
+  // proved flaky right at the viewport edge and could strand a stale
+  // "active" section after a fast scroll back to the top.
+  const navSectionEls = ["projects", "about", "certifications", "experience", "contact"]
+    .map((id) => document.getElementById(id))
+    .filter(Boolean);
+
+  function computeActiveSection() {
+    const vh = window.innerHeight;
+    const MIN_ACTIVE_RATIO = 0.12;
+    let bestId = null;
+    let bestRatio = MIN_ACTIVE_RATIO;
+
+    navSectionEls.forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (r.height <= 0) return;
+      const visibleTop = Math.max(r.top, 0);
+      const visibleBottom = Math.min(r.bottom, vh);
+      const visibleH = Math.max(0, visibleBottom - visibleTop);
+      const ratio = visibleH / r.height;
+      if (ratio > bestRatio) {
+        bestRatio = ratio;
+        bestId = el.id;
+      }
+    });
+
+    setActiveSection(bestId);
+  }
+
+  if (navSectionEls.length) {
+    let spyTicking = false;
+    const scheduleActiveSectionUpdate = () => {
+      if (spyTicking) return;
+      spyTicking = true;
+      requestAnimationFrame(() => {
+        computeActiveSection();
+        spyTicking = false;
+      });
+    };
+
+    computeActiveSection();
+    window.addEventListener("scroll", scheduleActiveSectionUpdate, { passive: true });
+    window.addEventListener("resize", scheduleActiveSectionUpdate, { passive: true });
+  }
+
   if ("IntersectionObserver" in window) {
-    const spy = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (!visible) return;
-      },
-      { threshold: [0.15, 0.35, 0.6] },
-    );
-
-    ["projects", "about", "experience", "contact", "proficiency"]
-      .map((id) => document.getElementById(id))
-      .filter(Boolean)
-      .forEach((s) => spy.observe(s));
-
     // Progress bars animation (Proficiency)
     const proficiency = document.getElementById("proficiency");
     if (proficiency) {
@@ -328,30 +407,57 @@
       window.matchMedia &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (!reduce) {
+      let heroInView = true;
+      if ("IntersectionObserver" in window) {
+        heroInView = false;
+        new IntersectionObserver(
+          (entries) => {
+            heroInView = entries[0].isIntersecting;
+          },
+          { threshold: 0 },
+        ).observe(hero);
+      }
+
+      let pendingEvent = null;
+      let ticking = false;
+
+      function applyParallax(e) {
+        const r = hero.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width; // 0..1
+        const y = (e.clientY - r.top) / r.height; // 0..1
+
+        const ox = (x - 0.5) * 80;
+        const oy = (y - 0.5) * 60;
+        orb.style.transform = `translate3d(${ox}px, ${oy}px, 0)`;
+
+        if (circle) {
+          circle.style.transform = `translate3d(${(x - 0.5) * 10}px, ${(y - 0.5) * 10}px, 0)`;
+        }
+
+        if (scan) {
+          scan.style.opacity = String(0.08 + x * 0.1);
+          scan.style.transform = `translateY(${(-20 + y * 40).toFixed(2)}%)`;
+        }
+      }
+
       window.addEventListener(
         "mousemove",
         (e) => {
-          const r = hero.getBoundingClientRect();
-          const x = (e.clientX - r.left) / r.width; // 0..1
-          const y = (e.clientY - r.top) / r.height; // 0..1
-
-          const ox = (x - 0.5) * 80;
-          const oy = (y - 0.5) * 60;
-          orb.style.transform = `translate3d(${ox}px, ${oy}px, 0)`;
-
-          if (circle) {
-            circle.style.transform = `translate3d(${(x - 0.5) * 10}px, ${(y - 0.5) * 10}px, 0)`;
-          }
-
-          if (scan) {
-            scan.style.opacity = String(0.08 + x * 0.1);
-            scan.style.transform = `translateY(${(-20 + y * 40).toFixed(2)}%)`;
-          }
+          if (!heroInView) return;
+          pendingEvent = e;
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(() => {
+            applyParallax(pendingEvent);
+            ticking = false;
+          });
         },
         { passive: true },
       );
     }
   }
+
+
   // Project Galleries (carousel) - simple prev/next per project card
   const galleries = $$("[data-gallery]");
 
@@ -411,6 +517,46 @@
 
   if (galleries.length) {
     galleries.forEach(setupGallery);
+  }
+
+  // 3D tilt on cards (mouse-only, respects reduced motion)
+  const reduceMotionMQ =
+    window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const coarsePointerMQ = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
+
+  if (!reduceMotionMQ && !coarsePointerMQ) {
+    const tiltEls = $$(".project-card, .cert-card, .about-card, .skills-card");
+
+    tiltEls.forEach((card) => {
+      const maxTilt = 6;
+      let rafId = null;
+      let pending = null;
+
+      function applyTilt() {
+        rafId = null;
+        if (!pending) return;
+        const { px, py } = pending;
+        card.style.transform = `perspective(900px) rotateX(${(-py * maxTilt).toFixed(2)}deg) rotateY(${(px * maxTilt).toFixed(2)}deg) scale(1.015)`;
+      }
+
+      card.addEventListener("pointermove", (e) => {
+        if (e.pointerType !== "mouse") return;
+        const r = card.getBoundingClientRect();
+        pending = {
+          px: (e.clientX - r.left) / r.width - 0.5,
+          py: (e.clientY - r.top) / r.height - 0.5,
+        };
+        card.style.transition = "transform 0.06s linear";
+        if (rafId === null) rafId = requestAnimationFrame(applyTilt);
+      });
+
+      card.addEventListener("pointerleave", (e) => {
+        if (e.pointerType !== "mouse") return;
+        pending = null;
+        card.style.transition = "transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1)";
+        card.style.transform = "";
+      });
+    });
   }
 })();
 

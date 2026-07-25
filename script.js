@@ -10,6 +10,10 @@
     el.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
+  // Footer copyright year
+  const footerYear = document.getElementById("footer-year");
+  if (footerYear) footerYear.textContent = new Date().getFullYear();
+
   // Click on navbar name -> scroll to top
   const logo = document.querySelector(".navbar .logo");
   if (logo) {
@@ -141,16 +145,6 @@
 
     const allTypeLines = $$(".type-line");
     if (allTypeLines.length) {
-      const map = {
-        home: "Building",
-        projects: "Web Experiences",
-        about: "Web Experiences",
-        experience: "That Perform",
-        contact: "That Perform",
-      };
-
-      const desired = map[id] || "Building";
-
       const modernLabel = document.querySelector(".modern-label");
       if (modernLabel) {
         modernLabel.style.opacity = "1";
@@ -184,11 +178,11 @@ function setStatus(statusEl, type, msg) {
   }
 
   function basicValidate(name, email, message) {
-    if (!name || name.length < 2) return "Please enter your name.";
+    if (!name || name.length < 2) return t("Please enter your name.");
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-      return "Please enter a valid email.";
+      return t("Please enter a valid email.");
     if (!message || message.length < 10)
-      return "Message must be at least 10 characters.";
+      return t("Message must be at least 10 characters.");
     return null;
   }
 
@@ -257,7 +251,7 @@ function setStatus(statusEl, type, msg) {
 
       try {
         await sendViaEmailJS(payload);
-        setStatus(contactStatus, "success", "Message sent successfully!");
+        setStatus(contactStatus, "success", t("Message sent successfully!"));
         contactForm.reset();
       } catch (error) {
         // Important: do NOT navigate immediately.
@@ -266,7 +260,7 @@ function setStatus(statusEl, type, msg) {
         setStatus(
           contactStatus,
           "error",
-          "Could not send via EmailJS. Click to open an email draft.",
+          t("Could not send via EmailJS. Click to open an email draft."),
         );
 
         let linkEl = contactForm.querySelector(".contact-mailto-link");
@@ -279,9 +273,9 @@ function setStatus(statusEl, type, msg) {
           linkEl.style.color = "var(--accent)";
           linkEl.target = "_blank";
           linkEl.rel = "noopener noreferrer";
-          linkEl.textContent = "Open email draft (mailto)";
           contactForm.appendChild(linkEl);
         }
+        linkEl.textContent = t("Open email draft (mailto)");
         linkEl.href = mailto;
       } finally {
         if (sendBtn) {
@@ -558,5 +552,88 @@ function setStatus(statusEl, type, msg) {
       });
     });
   }
+
+  // ---------------------------------------------------------------
+  // Language toggle (English / Arabic) — swaps text via data-i18n-ar
+  // attributes, flips document direction to RTL, and persists choice.
+  // ---------------------------------------------------------------
+  const LANG_STORAGE_KEY = "site-lang";
+
+  const MESSAGES_AR = {
+    "Please enter your name.": "من فضلك أدخل اسمك.",
+    "Please enter a valid email.": "من فضلك أدخل بريدًا إلكترونيًا صحيحًا.",
+    "Message must be at least 10 characters.": "يجب أن تكون الرسالة 10 أحرف على الأقل.",
+    "Message sent successfully!": "تم إرسال الرسالة بنجاح!",
+    "Could not send via EmailJS. Click to open an email draft.":
+      "تعذر الإرسال عبر EmailJS. اضغط لفتح مسودة بريد إلكتروني.",
+    "Open email draft (mailto)": "افتح مسودة البريد الإلكتروني",
+  };
+
+  let currentLang = "en";
+
+  function t(enText) {
+    return currentLang === "ar" ? MESSAGES_AR[enText] || enText : enText;
+  }
+
+  function applyLanguage(lang) {
+    const isAr = lang === "ar";
+    currentLang = isAr ? "ar" : "en";
+
+    document.documentElement.lang = currentLang;
+    document.documentElement.dir = isAr ? "rtl" : "ltr";
+
+    $$("[data-i18n-ar]").forEach((el) => {
+      if (el.dataset.i18nEn === undefined) el.dataset.i18nEn = el.textContent;
+      el.textContent = isAr ? el.dataset.i18nAr : el.dataset.i18nEn;
+    });
+
+    $$("[data-i18n-ar-placeholder]").forEach((el) => {
+      if (el.dataset.i18nEnPlaceholder === undefined) {
+        el.dataset.i18nEnPlaceholder = el.getAttribute("placeholder") || "";
+      }
+      el.setAttribute(
+        "placeholder",
+        isAr ? el.dataset.i18nArPlaceholder : el.dataset.i18nEnPlaceholder,
+      );
+    });
+
+    $$("[data-tooltip-ar]").forEach((el) => {
+      if (el.dataset.tooltipEn === undefined) {
+        el.dataset.tooltipEn = el.getAttribute("data-tooltip") || "";
+      }
+      el.setAttribute(
+        "data-tooltip",
+        isAr ? el.dataset.tooltipAr : el.dataset.tooltipEn,
+      );
+    });
+
+    const langToggleLabel = document.querySelector("#lang-toggle .lang-toggle-label");
+    if (langToggleLabel) langToggleLabel.textContent = isAr ? "English" : "العربية";
+
+    try {
+      localStorage.setItem(LANG_STORAGE_KEY, currentLang);
+    } catch (e) {
+      /* private mode / storage disabled — language just won't persist */
+    }
+
+    // Nav-underline / dock-indicator geometry depends on rendered text
+    // width, which changes when the language switches.
+    requestAnimationFrame(() => window.dispatchEvent(new Event("resize")));
+  }
+
+  const langToggleBtn = document.getElementById("lang-toggle");
+  if (langToggleBtn) {
+    langToggleBtn.addEventListener("click", () => {
+      applyLanguage(currentLang === "en" ? "ar" : "en");
+    });
+  }
+
+  let storedLang = null;
+  try {
+    storedLang = localStorage.getItem(LANG_STORAGE_KEY);
+  } catch (e) {
+    /* ignore */
+  }
+  applyLanguage(storedLang === "ar" ? "ar" : "en");
 })();
 

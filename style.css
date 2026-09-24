@@ -260,7 +260,36 @@ body {
 .buttons {
   margin-top: 35px;
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+@media (max-width: 1024px) {
+  .buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .buttons .primary-btn,
+  .buttons .secondary-btn {
+    flex: 1 1 calc(50% - 7px);
+    min-width: 0;
+    padding: 14px 12px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .buttons .secondary-btn[download] {
+    flex: 0 1 100%;
+    max-width: 260px;
+  }
 }
 
 .primary-btn,
@@ -287,6 +316,14 @@ body {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: white;
+}
+
+.secondary-btn[download] {
+  background: linear-gradient(135deg, var(--accent2), #4f46e5);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(123, 44, 255, 0.35);
 }
 
 .primary-btn:hover,

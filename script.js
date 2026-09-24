@@ -287,7 +287,8 @@
           }
         }
       }, {
-        threshold: .25
+        threshold: 0,
+        rootMargin: "0px 0px -10% 0px"
       });
       pbIO.observe(proficiency);
     }
@@ -296,7 +297,8 @@
         if (entry.isIntersecting) entry.target.classList.add("is-visible");
       }
     }, {
-      threshold: .12
+      threshold: 0,
+      rootMargin: "0px 0px -5% 0px"
     });
     animateTargets.forEach(t => {
       t.classList.add("will-animate");

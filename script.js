@@ -235,7 +235,10 @@
       }
     });
   }
-  const animateTargets = $$(".projects, .about, .experience, .contact, .certifications, .cert-card, .project-card, .about-card, .skills-card");
+  const animateTargets = $$(".projects, .about, .experience, .contact, .certifications, .cert-card, .project-card, .about-card, .skills-card, .timeline-item");
+  const revealFixedDirection = { "about-card": "left", "skills-card": "right" };
+  const revealAlternating = [ "project-card", "cert-card", "timeline-item" ];
+  const revealCounters = {};
   const navSectionEls = [ "projects", "about", "certifications", "experience", "contact" ].map(id => document.getElementById(id)).filter(Boolean);
   function computeActiveSection() {
     const vh = window.innerHeight;
@@ -294,7 +297,14 @@
     }
     const io = new IntersectionObserver(entries => {
       for (const entry of entries) {
-        if (entry.isIntersecting) entry.target.classList.add("is-visible");
+        if (!entry.isIntersecting) continue;
+        const el = entry.target;
+        el.classList.add("is-visible");
+        if (el.hasAttribute("data-reveal")) {
+          el.classList.add("reveal-in");
+          setTimeout(() => el.classList.remove("reveal-in"), 1650);
+        }
+        io.unobserve(el);
       }
     }, {
       threshold: 0,
@@ -302,6 +312,17 @@
     });
     animateTargets.forEach(t => {
       t.classList.add("will-animate");
+      for (const cls of revealAlternating) {
+        if (t.classList.contains(cls)) {
+          const n = revealCounters[cls] || 0;
+          t.setAttribute("data-reveal", n % 2 === 0 ? "left" : "right");
+          revealCounters[cls] = n + 1;
+          break;
+        }
+      }
+      for (const cls in revealFixedDirection) {
+        if (t.classList.contains(cls)) t.setAttribute("data-reveal", revealFixedDirection[cls]);
+      }
       io.observe(t);
     });
     const aboutSection = document.getElementById("about");
@@ -406,38 +427,6 @@
   }
   if (galleries.length) {
     galleries.forEach(setupGallery);
-  }
-  const reduceMotionMQ = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const coarsePointerMQ = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
-  if (!reduceMotionMQ && !coarsePointerMQ) {
-    const tiltEls = $$(".project-card, .cert-card, .about-card, .skills-card");
-    tiltEls.forEach(card => {
-      const maxTilt = 6;
-      let rafId = null;
-      let pending = null;
-      function applyTilt() {
-        rafId = null;
-        if (!pending) return;
-        const {px: px, py: py} = pending;
-        card.style.transform = `perspective(900px) rotateX(${(-py * maxTilt).toFixed(2)}deg) rotateY(${(px * maxTilt).toFixed(2)}deg) scale(1.015)`;
-      }
-      card.addEventListener("pointermove", e => {
-        if (e.pointerType !== "mouse") return;
-        const r = card.getBoundingClientRect();
-        pending = {
-          px: (e.clientX - r.left) / r.width - .5,
-          py: (e.clientY - r.top) / r.height - .5
-        };
-        card.style.transition = "transform 0.06s linear";
-        if (rafId === null) rafId = requestAnimationFrame(applyTilt);
-      });
-      card.addEventListener("pointerleave", e => {
-        if (e.pointerType !== "mouse") return;
-        pending = null;
-        card.style.transition = "transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1)";
-        card.style.transform = "";
-      });
-    });
   }
   const LANG_STORAGE_KEY = "site-lang";
   const MESSAGES_AR = {

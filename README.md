@@ -7,7 +7,10 @@ Personal portfolio website of **Salman Tawfiq**, a full-stack software engineer 
 ## What's inside
 
 - Projects overview with links to live demos and source code
-- Skills, certifications and CV download
+- At-a-glance facts, skills and CV download
+- Full career timeline (experience, Microsoft Official Courses, training, education)
+- Certificates and the experience letter, each as its own PDF
+- Bilingual (English / Arabic, RTL) interface
 - Contact section
 - Responsive design, deployed on GitHub Pages with a custom domain
 

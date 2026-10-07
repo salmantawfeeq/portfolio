@@ -1293,6 +1293,37 @@ h2 {
   line-height: 1.75;
 }
 
+.timeline-org {
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.timeline-list {
+  margin: 0 0 12px;
+  padding-left: 20px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.timeline-list li {
+  margin-bottom: 6px;
+}
+
+[dir="rtl"] .timeline-list {
+  padding-left: 0;
+  padding-right: 20px;
+}
+
+.timeline-tags {
+  margin-top: 6px;
+}
+
+[dir="rtl"] .timeline-tags .project-tag {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
 @media (max-width: 900px) {
   .about-grid {
     grid-template-columns: 1fr;
@@ -2086,3 +2117,81 @@ html[lang="ar"] body {
     padding-top: 40px;
   }
 }
+
+/* ---------- At a Glance ---------- */
+.glance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.glance-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--stroke);
+  border-radius: 16px;
+  padding: 18px;
+}
+.glance-label {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+.glance-value {
+  color: #fff;
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .glance-grid { grid-template-columns: 1fr; }
+}
+
+[dir="rtl"] .skill-tag:not([data-i18n-ar]) {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* ---------- Certificate viewer (view only) ---------- */
+button.cert-link {
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+.cert-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(3, 5, 14, 0.92);
+}
+.cert-lightbox[hidden] { display: none; }
+.cert-lightbox-img {
+  max-width: min(100%, 1200px);
+  max-height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  background: #fff;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+.cert-lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+.cert-lightbox-close:hover { background: rgba(255, 123, 0, 0.35); }

@@ -480,4 +480,37 @@
     storedLang = localStorage.getItem(LANG_STORAGE_KEY);
   } catch (e) {}
   applyLanguage(storedLang === "ar" ? "ar" : "en");
+
+  const certBox = document.getElementById("cert-lightbox");
+  const certImg = document.getElementById("cert-lightbox-img");
+  let certTrigger = null;
+  function closeCert() {
+    if (!certBox || certBox.hidden) return;
+    certBox.hidden = true;
+    certImg.removeAttribute("src");
+    document.body.style.overflow = "";
+    if (certTrigger) certTrigger.focus();
+  }
+  if (certBox && certImg) {
+    $$("[data-cert-src]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        certTrigger = btn;
+        const card = btn.closest(".cert-card");
+        const title = card ? card.querySelector(".cert-title") : null;
+        certImg.alt = title ? title.textContent : "Certificate";
+        certImg.src = btn.dataset.certSrc;
+        certBox.hidden = false;
+        document.body.style.overflow = "hidden";
+        $(".cert-lightbox-close", certBox).focus();
+      });
+    });
+    certBox.addEventListener("click", e => {
+      if (e.target !== certImg) closeCert();
+    });
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") closeCert();
+    });
+    certBox.addEventListener("contextmenu", e => e.preventDefault());
+    certImg.addEventListener("dragstart", e => e.preventDefault());
+  }
 })();

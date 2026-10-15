@@ -1,6 +1,6 @@
 # Salman Tawfiq - Portfolio
 
-Personal portfolio website of **Salman Tawfiq**, a full-stack software engineer working with ASP.NET Core, C# and SQL Server. It showcases projects, certifications and contact details.
+Personal portfolio website of **Salman Tawfiq**, an Information Systems Specialist (IT Support) and Full-Stack .NET Developer working with ASP.NET Core, C# and SQL Server. It showcases projects, certifications and contact details.
 
 **Live site:** https://salmantawfiq.com
 

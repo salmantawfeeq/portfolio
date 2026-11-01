@@ -2247,3 +2247,6 @@ button.cert-link {
     padding: 28px 0;
   }
 }
+
+/* Anchor variant of the project action button (e.g. "Source Code on GitHub") */
+a.live-demo-btn { display: inline-flex; align-items: center; text-decoration: none; }

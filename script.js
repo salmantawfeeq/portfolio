@@ -212,7 +212,7 @@
           email: email,
           message: message
         });
-        setStatus(contactStatus, "error", t("Could not send via EmailJS. Click to open an email draft."));
+        setStatus(contactStatus, "error", t("Could not send your message right now. Click to open an email draft."));
         let linkEl = contactForm.querySelector(".contact-mailto-link");
         if (!linkEl) {
           linkEl = document.createElement("a");
@@ -434,7 +434,7 @@
     "Please enter a valid email.": "من فضلك أدخل بريدًا إلكترونيًا صحيحًا.",
     "Message must be at least 10 characters.": "يجب أن تكون الرسالة 10 أحرف على الأقل.",
     "Message sent successfully!": "تم إرسال الرسالة بنجاح!",
-    "Could not send via EmailJS. Click to open an email draft.": "تعذر الإرسال عبر EmailJS. اضغط لفتح مسودة بريد إلكتروني.",
+    "Could not send your message right now. Click to open an email draft.": "تعذر إرسال رسالتك الآن. اضغط لفتح مسودة بريد إلكتروني.",
     "Open email draft (mailto)": "افتح مسودة البريد الإلكتروني"
   };
   let currentLang = "en";

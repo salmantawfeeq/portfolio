@@ -2204,6 +2204,8 @@ button.cert-link {
 }
 
 .profile-wrap {
+  position: relative;
+  flex: 0 0 auto;
   box-sizing: border-box;
   width: clamp(250px, 27vw, 390px);
   height: clamp(250px, 27vw, 390px);
@@ -2234,5 +2236,14 @@ button.cert-link {
   .profile-wrap {
     width: clamp(210px, 62vw, 250px);
     height: clamp(210px, 62vw, 250px);
+  }
+}
+
+/* Keep the portrait in the layout flow (it gives .hero-visual its height) and
+   leave room around it so the frame and shadow are never clipped on small screens. */
+@media (max-width: 1024px) {
+  .hero-visual {
+    min-height: 0;
+    padding: 28px 0;
   }
 }

@@ -2195,3 +2195,44 @@ button.cert-link {
   cursor: pointer;
 }
 .cert-lightbox-close:hover { background: rgba(255, 123, 0, 0.35); }
+
+/* ===== Hero portrait: clean, professional frame ===== */
+.hero-visual .circle,
+.hero-visual .cursor-orb,
+.profile-wrap::before {
+  display: none !important;
+}
+
+.profile-wrap {
+  box-sizing: border-box;
+  width: clamp(250px, 27vw, 390px);
+  height: clamp(250px, 27vw, 390px);
+  padding: 4px;
+  border: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f3d98f 0%, #c9a24b 34%, #8f6a1f 66%, #f0d27c 100%);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.55),
+    0 0 0 10px rgba(255, 255, 255, 0.035);
+}
+
+.profile-img {
+  border-radius: 50%;
+  transform: none;
+  filter: none;
+}
+
+@media (max-width: 1024px) {
+  .profile-wrap {
+    width: clamp(220px, 34vw, 320px);
+    height: clamp(220px, 34vw, 320px);
+  }
+}
+
+@media (max-width: 600px) {
+  .profile-wrap {
+    width: clamp(210px, 62vw, 250px);
+    height: clamp(210px, 62vw, 250px);
+  }
+}
